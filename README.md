@@ -5,13 +5,9 @@ Steps for complete analysis. Please see each script for dependencies and details
 1. ProcessFASTQ_hMitoRP.sh LibName inputFASTQ UMI(e.g. 3p6, 3p6_5p4, 3p10_5p4)
    
    outputs:
-   
    ${LibName}_Counts.txt : alignment counts
-   
    ${LibName}_LengthDist.txt : mito mRNA read lengths (with soft-clipped nt counted in length
-   
    ${LibName}_Aligned.Mito_mRNA.noDups_samstatsReadlength.noSoft.txt : mito mRNA read lengths with soft-clipped nt not counted in length
-   
    ${LibName}_Mito_mRNA.noDups.5p.plus.bedGraph : 5' bedgraph for IGV visualization
    
    Use notes at the end of script to combine all samples into one file using unix commands (paste, awk, etc)
@@ -22,9 +18,7 @@ Steps for complete analysis. Please see each script for dependencies and details
    Use notes at the end of script to combine all samples into one file using unix commands (paste, awk, etc)
    
    outputs:
-   
    ${Experiment}_5p_allFrameCounts.txt
-   
    ${Experiment}_3p_allFrameCounts.txt
    
    --> Plot frame frequency for each footprint length and choose which lengths to use in downstream analysis
@@ -34,7 +28,6 @@ Steps for complete analysis. Please see each script for dependencies and details
    (this is not required unless you want to make Vplots to visualize read profile)
    
    outputs:
-   
    ${LibName}_Mito_mRNA_lengths3p_M.bed
    ${LibName}_Mito_mRNA_lengths3p_P.bed                                                                                                                
    ${LibName}_Mito_mRNA_lengths5p_M.bed                                                                                                                  
