@@ -3,6 +3,7 @@
 Steps for complete analysis. Please see each script for dependencies and details
 
 1. ProcessFASTQ_hMitoRP.sh LibName inputFASTQ UMI(e.g. 3p6, 3p6_5p4, 3p10_5p4)
+   
    outputs:
    ${LibName}_Counts.txt : alignment counts
    ${LibName}_LengthDist.txt : mito mRNA read lengths (with soft-clipped nt counted in length
@@ -11,15 +12,19 @@ Steps for complete analysis. Please see each script for dependencies and details
    Use notes at the end of script to combine all samples into one file using unix commands (paste, awk, etc)
    
 2. CountFramePerLength.sh LibName
+   
    (this is not required but is good to check for determining ideal Asite transformation, in combination with read length distributions. May also need to do (3) as well
    Use notes at the end of script to combine all samples into one file using unix commands (paste, awk, etc)
+   
    outputs:
    ${Experiment}_5p_allFrameCounts.txt
    ${Experiment}_3p_allFrameCounts.txt
    --> Plot frame frequency for each footprint length and choose which lengths to use in downstream analysis
 
 3. MakeLengthBeds.sh LibName
+   
    (this is not required unless you want to make Vplots to visualize read profile)
+   
    outputs:
    ${LibName}_Mito_mRNA_lengths3p_M.bed                                                                                                                     
    ${LibName}_Mito_mRNA_lengths3p_P.bed                                                                                                                   
@@ -28,7 +33,9 @@ Steps for complete analysis. Please see each script for dependencies and details
    --> Then put these through the script ScatterPlotLengths.R to make Vplots    
 
 4. AsiteAndCountFrame.sh LibName Exp sizeRange
+   
    (this should only be run after determining A-site offset and read length sizes to be used. Calls script SAM2hMitoFBED_softClip_<Exp>.py, which provides experiment-specific offsets)
+   
    outputs:
    ${Experiment}_Asite_${sizeRange}_FrameCount_ignore1st3.txt
    ${Experiment}_${sizeRange}_Asite_RPK_inside.txt : Summing of readcounts. This is now replaced by featureCounts (step 5 below)
