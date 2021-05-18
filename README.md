@@ -21,6 +21,11 @@ Fastq files are deposited in the GEO database under the accession number GSE1732
 <img src="Image.jpg" width="90%">
 
 
+
+
+
+
+
 ## 0_CreateSTARindex
 Download fasta and gtf files from desired source (e.g. GENCODE) and follow instuctions.txt
 
