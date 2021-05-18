@@ -7,9 +7,9 @@
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-user=<youremailaddress>
 
-### WRITTEN:		03/16/2020 by Mary Couvillion
+### WRITTEN:				03/16/2020 by Mary Couvillion
 
-### USE: 			This script will trim reads, map to the genome, remove PCR duplicates, 
+### USE: 				This script will trim reads, map to the genome, remove PCR duplicates, 
 ###					and produce files for visualizing on IGV
 ###					sbatch -e logs/LibName.err -o logs/LibName.log ProcessFASTQ_hMitoRP.sh
 ###					LibName FASTQfile UMItype
@@ -24,12 +24,32 @@
 ### sbatch -e logs/ProcessFASTQ_${Libs[i]}.err -o logs/ProcessFASTQ_${Libs[i]}.log $scriptpath ${Libs[i]} ${fastqs[i]} $UMI
 ### done
 
-### REQUIREMENTS:	logs directory (in same directory)
-###					fastq.gz files (in same directory)
+### REQUIREMENTS:			./logs/ directory
+###					*fastq.gz files (gzipped)
 ###					
+###					./Scripts/
 ###					extractMolecularBarcodeFrom<UMItype>.py
 ###					removePCRdupsFromBAM_MC20180913.py
-###					bowtie and STAR indices
+###
+###					./AnnotationFiles/bowtieindex/
+###					rRNA_SSU
+###					rRNA_LSU
+###					hMito_rRNA
+###					mMito_mRNAs
+###					tRNAs
+###					hMito_tRNA
+###					oGAB
+###
+###					./AnnotationFiles/STARindex/
+###					GRCh38_ncRNAs_mM17_merge_riboSeq
+###					--> Create this first using instructions in 0_CreateSTARindex
+###					or if on O2, can use: /n/groups/churchman/hMitoRP/SequenceFiles/GRCh38_ncRNAs_mM17_merge_riboSeq
+###					
+###					
+###					./AnnotationFiles/BEDfiles/
+###					hMito_mRNAsANDsurrounding.bed
+###					GENCODE_hg38_proteincoding.sorted.bed
+###
 
 # load required modules
 module load gcc/6.2.0
@@ -56,11 +76,11 @@ UMI=$3 # 3p6, 3p6_5p4, 3p10_5p4
 # ########################################
 if [ "${UMI}" = "3p10_5p4" ]
 then
-	# Cutadapt (minimum is 25-10-4=11 after trimming --untrimmed-output writes reads with     		  no adaptor found INSTEAD of writing to final output file. Do this here so that we keep only reads that have adapter, which means we know where the barcode is
+	# Cutadapt (minimum is 25-10-4=11 after trimming --untrimmed-output writes reads with no adaptor found INSTEAD of writing to final output file. Do this here so that we keep only reads that have adapter, which means we know where the barcode is
 	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 25 ${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	###### To extract barcode ######
-	python /n/groups/churchman/hMitoRP/Scripts/extractMolecularBarcodeFrom3pr10AND5pr4.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq
+	python ./Scripts/extractMolecularBarcodeFrom3pr10AND5pr4.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq
 	rm ${LibName}_trimmed.fastq
 
 elif [ "${UMI}" = "3p6_5p4" ]
@@ -69,7 +89,7 @@ then
 	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 21 ${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	###### To extract barcode ######
-	python /n/groups/churchman/hMitoRP/Scripts/extractMolecularBarcodeFrom3pr6AND5pr.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq
+	python ./Scripts/extractMolecularBarcodeFrom3pr6AND5pr.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq
 	rm ${LibName}_trimmed.fastq
 
 elif [ "${UMI}" = "3p6" ]
@@ -78,7 +98,7 @@ then
 	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 17 ${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	##### To extract barcode ######
-	python /n/groups/churchman/hMitoRP/Scripts/extractMolecularBarcodeFrom3pr.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq ${LibName}_Barcodes.txt ${LibName}_Ligation.txt
+	python ./Scripts/extractMolecularBarcodeFrom3pr.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq ${LibName}_Barcodes.txt ${LibName}_Ligation.txt
 	rm ${LibName}_trimmed.fastq
 	rm ${LibName}_Barcodes.txt
 	rm ${LibName}_Ligation.txt
@@ -101,54 +121,42 @@ fastqc ${LibName}_Cleaned.fastq
 # 5. oGAB bowtie 5' trim 1mm
 
 # Cyto SSU rRNA
-bowtie -v 1 -5 1 -S /n/groups/churchman/hMitoRP/bowtieindex/rRNA_SSU ${LibName}_Cleaned.fastq ${LibName}_Nuc_SSUrRNA_almts.sam --un ${LibName}_Nuc_SSUrRNA_un.fastq
+bowtie -v 1 -5 1 -S ./AnnotationFiles/bowtieindex/rRNA_SSU ${LibName}_Cleaned.fastq ${LibName}_Nuc_SSUrRNA_almts.sam --un ${LibName}_Nuc_SSUrRNA_un.fastq
 rm ${LibName}_Nuc_SSUrRNA_almts.sam
 
 # Cyto LSU rRNA
-bowtie -v 1 -5 1 -S /n/groups/churchman/hMitoRP/bowtieindex/rRNA_LSU ${LibName}_Nuc_SSUrRNA_un.fastq ${LibName}_Nuc_LSUrRNA_almts.sam --un ${LibName}_Nuc_LSUrRNA_un.fastq
+bowtie -v 1 -5 1 -S ./AnnotationFiles/bowtieindex/rRNA_LSU ${LibName}_Nuc_SSUrRNA_un.fastq ${LibName}_Nuc_LSUrRNA_almts.sam --un ${LibName}_Nuc_LSUrRNA_un.fastq
 rm ${LibName}_Nuc_SSUrRNA_un.fastq
 rm ${LibName}_Nuc_LSUrRNA_almts.sam
 
 # Mito rRNA
-bowtie -v 1 -5 1 -S /n/groups/churchman/hMitoRP/bowtieindex/hMito_rRNA ${LibName}_Nuc_LSUrRNA_un.fastq ${LibName}_hMito_rRNA_almts.sam --al ${LibName}_hMito_rRNA_al.fastq --un ${LibName}_hMito_rRNA_un.fastq
+bowtie -v 1 -5 1 -S ./AnnotationFiles/bowtieindex/hMito_rRNA ${LibName}_Nuc_LSUrRNA_un.fastq ${LibName}_hMito_rRNA_almts.sam --al ${LibName}_hMito_rRNA_al.fastq --un ${LibName}_hMito_rRNA_un.fastq
 rm ${LibName}_Nuc_LSUrRNA_un.fastq
 rm ${LibName}_hMito_rRNA_almts.sam
 
 # Mouse mito mRNA
 # First filter input fastq so that only read lengths >= 20 are kept for this part
 cutadapt -m 20 ${LibName}_hMito_rRNA_un.fastq -o ${LibName}_hMito_rRNA_20up_un.fastq
-bowtie -v 0 -5 1 -S /n/groups/churchman/hMitoRP/bowtieindex/mMito_mRNAs ${LibName}_hMito_rRNA_20up_un.fastq ${LibName}_mMito_mRNAs_0mm.sam --al ${LibName}_mMito_mRNAs_0mm_al.fastq
+bowtie -v 0 -5 1 -S ./AnnotationFiles/bowtieindex/mMito_mRNAs ${LibName}_hMito_rRNA_20up_un.fastq ${LibName}_mMito_mRNAs_0mm.sam --al ${LibName}_mMito_mRNAs_0mm_al.fastq
 rm ${LibName}_hMito_rRNA_20up_un.fastq
 # Cyto tRNA
-bowtie -v 1 -3 3 -5 1 -S /n/groups/churchman/hMitoRP/bowtieindex/tRNAs ${LibName}_hMito_rRNA_un.fastq ${LibName}_Nuc_tRNA_almts.sam --un ${LibName}_Nuc_tRNA_un.fastq
+bowtie -v 1 -3 3 -5 1 -S ./AnnotationFiles/bowtieindex/tRNAs ${LibName}_hMito_rRNA_un.fastq ${LibName}_Nuc_tRNA_almts.sam --un ${LibName}_Nuc_tRNA_un.fastq
 rm ${LibName}_Nuc_tRNA_almts.sam
 
 # Mito tRNA
-bowtie -v 1 -3 3 -5 1 -S /n/groups/churchman/hMitoRP/bowtieindex/hMito_tRNA ${LibName}_Nuc_tRNA_un.fastq ${LibName}_hMito_tRNA_almts.sam --al ${LibName}_hMito_tRNA_al.fastq
+bowtie -v 1 -3 3 -5 1 -S ./AnnotationFiles/bowtieindex/hMito_tRNA ${LibName}_Nuc_tRNA_un.fastq ${LibName}_hMito_tRNA_almts.sam --al ${LibName}_hMito_tRNA_al.fastq
 rm ${LibName}_hMito_tRNA_almts.sam
 
-###################### PREPARE MAPPING REFERENCE #####################
-################ DO THIS ONCE FOR EACH TYPE OF LIBRARY ###############
 
-############ Concatenate fasta files and gtf files for all the sequences you want to map to: hg38 human genome, LSU rRNA (28S, 5.8S, 5S, etc), SSU rRNA, Nuclear tRNAs (these categories are not annotated in available gtfs), mm10 mouse genome {the chromosome names need to be modified here to be different from human (mchr1, mchr2, etc}
-############ cat GRCh38.primary_assembly.genome.fa rRNA_LSU.fasta rRNA_SSU.fasta tRNAs_cat.fa mGenome_ALL_mM17_gencode.fa > GRCh38_ncRNAs_mM17_merge.fasta
-############ cat gencode.v30.primary_assembly.annotation.gtf ncRNA.gtf mGenome_ALL_mM17_gencode.gtf > GRCh38_ncRNAs_mM17_merge.gtf
-############ Load picard: module load picard/2.8.0
-############ Fix fasta so that all lines are the same length (don't have to do this for mapping, but some downstream programs may need it to be formatted correctly): sbatch -p short -t 0-01:00 --mem=5G --wrap="java -jar $PICARD/picard-2.8.0.jar NormalizeFasta I=GRCh38_ncRNAs_mM17_merge.fasta O=GRCh38_ncRNAs_mM17_merge.formatted.fasta LINE_LENGTH=60"
+################ MAP to genome with STAR #################
 
-############ Make STAR index
-############ mkdir GRCh38_ncRNAs_mM17_merge_riboSeq
-############ sbatch -p short -t 0-3:00 -c 6 --mem=100G --wrap="STAR --runThreadN 6 --runMode genomeGenerate --genomeDir GRCh38_ncRNAs_mM17_merge_riboSeq --genomeFastaFiles GRCh38_ncRNAs_mM17_merge.formatted.fasta --sjdbGTFfile mGenome_ALL_mM17_gencode.gtf --sjdbOverhang 50"
-
-################ MAP #################
-
-STAR --runThreadN 4 --genomeDir /n/groups/churchman/hMitoRP/SequenceFiles/GRCh38_ncRNAs_mM17_merge_riboSeq --readFilesIn ${LibName}_hMito_rRNA_un.fastq --outFileNamePrefix ${LibName}_ --outSAMtype BAM SortedByCoordinate --outSAMattributes NH HI AS nM NM MD --outFilterIntronMotifs RemoveNoncanonicalUnannotated --outFilterMultimapNmax 1000 --outFilterMismatchNoverReadLmax 0.07 --outFilterMismatchNmax 3 --outReadsUnmapped Fastx
+STAR --runThreadN 4 --genomeDir ./AnnotationFiles/STARindex/GRCh38_ncRNAs_mM17_merge_riboSeq --readFilesIn ${LibName}_hMito_rRNA_un.fastq --outFileNamePrefix ${LibName}_ --outSAMtype BAM SortedByCoordinate --outSAMattributes NH HI AS nM NM MD --outFilterIntronMotifs RemoveNoncanonicalUnannotated --outFilterMultimapNmax 1000 --outFilterMismatchNoverReadLmax 0.07 --outFilterMismatchNmax 3 --outReadsUnmapped Fastx
 # 
 rm -r ${LibName}__STARtmp
 rm ${LibName}_SJ.out.tab
 
 # Map to oGAB
-bowtie -v 1 -5 1 -S /n/groups/churchman/mc348/yeast_bowtie_index/oGAB ${LibName}_Unmapped.out.mate1 ${LibName}_oGAB_almts.sam
+bowtie -v 1 -5 1 -S ./AnnotationFiles/bowtieindex/oGAB ${LibName}_Unmapped.out.mate1 ${LibName}_oGAB_almts.sam
 rm ${LibName}_oGAB_almts.sam
 # 
 # # ############ Get counts from mapping ###########
@@ -188,8 +196,8 @@ samtools index -@ 3 ${LibName}_Aligned.sortedByCoord.out.bam
 samtools index -@ 3 ${LibName}_mMito_mRNAs_0mm.sort.bam
 
 ## Removal
-python /n/groups/churchman/hMitoRP/Scripts/removePCRdupsFromBAM_MC20180913.py ${LibName}_Aligned.sortedByCoord.out.bam ${LibName}_Aligned_noDups.bam
-python /n/groups/churchman/hMitoRP/Scripts/removePCRdupsFromBAM_MC20180913.py ${LibName}_mMito_mRNAs_0mm.sort.bam ${LibName}_mMito_mRNA_noDups.bam
+python ./Scripts/removePCRdupsFromBAM_MC20180913.py ${LibName}_Aligned.sortedByCoord.out.bam ${LibName}_Aligned_noDups.bam
+python ./Scripts/removePCRdupsFromBAM_MC20180913.py ${LibName}_mMito_mRNAs_0mm.sort.bam ${LibName}_mMito_mRNA_noDups.bam
 
 
 
@@ -200,12 +208,12 @@ python /n/groups/churchman/hMitoRP/Scripts/removePCRdupsFromBAM_MC20180913.py ${
 samtools sort -@ 3 -o ${LibName}_Aligned_noDups.sort.bam ${LibName}_Aligned_noDups.bam
 
 ## Choose coordinates by specifying mito bed file
-samtools view -@ 3 -b -o ${LibName}_Aligned.Mito_mRNA.noDups.bam -L /n/groups/churchman/hMitoRP/SequenceFiles/hMito_mRNAsANDsurrounding.bed ${LibName}_Aligned_noDups.sort.bam
+samtools view -@ 3 -b -o ${LibName}_Aligned.Mito_mRNA.noDups.bam -L ./AnnotationFiles/BEDfiles/hMito_mRNAsANDsurrounding.bed ${LibName}_Aligned_noDups.sort.bam
 # And hNuc mRNA only file
-samtools view -@ 3 -b -o ${LibName}_Aligned.Nuc_mRNA.noDups.bam -L /n/groups/churchman/hMitoRP/SequenceFiles/GENCODE_hg38_proteincoding.sorted.bed ${LibName}_Aligned_noDups.sort.bam
+samtools view -@ 3 -b -o ${LibName}_Aligned.Nuc_mRNA.noDups.bam -L ./AnnotationFiles/BEDfiles/GENCODE_hg38_proteincoding.sorted.bed ${LibName}_Aligned_noDups.sort.bam
 
 # Also for non-deduplicated file, to get counts
-samtools view -@ 3 -b -o ${LibName}_hMito_mRNA_Aligned.sortedByCoord.out.bam -L /n/groups/churchman/hMitoRP/SequenceFiles/hMito_mRNAsANDsurrounding.bed ${LibName}_Aligned.sortedByCoord.out.bam
+samtools view -@ 3 -b -o ${LibName}_hMito_mRNA_Aligned.sortedByCoord.out.bam -L ./AnnotationFiles/BEDfiles/hMito_mRNAsANDsurrounding.bed ${LibName}_Aligned.sortedByCoord.out.bam
 
 # ############ Get counts from noDups ###########
 echo '' >> ${LibName}_Counts.txt
