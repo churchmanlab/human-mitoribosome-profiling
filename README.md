@@ -1,4 +1,16 @@
-# human-mitoribosome-profiling
+# Muman mitoribosome profiling analysis
+
+This repository includes the scripts and annotation files needed to analyze mitoribosome profiling data generated from human cells. The directories are listed in order to take raw fastq files through trimming, alignment, quality control, and many other library characteristics. There are README files for each analysis step explaining how scripts are run and what is generated with each. Optimized to run on HMS O2 computing cluster (SLURM job scheduler).
+
+# Analysis steps
+
+0. Create STAR index
+1. Trim and align raw reads -> get library compositions, RPF length distributions, 5' bedgraphs for viewing on IGV
+
+## 0_CreateSTARindex
+Download fasta and gtf files from desired source (e.g. GENCODE) and follow instuctions.txt
+
+## 1_AlignData
 
 Steps for complete analysis. Please see each script for dependencies and details
 
