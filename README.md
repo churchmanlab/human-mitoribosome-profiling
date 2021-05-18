@@ -18,7 +18,7 @@ This repository includes the scripts and annotation files needed to analyze mito
 Fastq files are deposited in the GEO database under the accession number GSE173283. The link to our full manuscript will be provided here upon publication.
 
 
-<img src="Image.jpg" width="40%">
+<img src="Image.jpg" width="90%">
 
 
 ## 0_CreateSTARindex
