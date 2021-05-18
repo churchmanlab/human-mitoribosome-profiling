@@ -48,7 +48,8 @@
 ###					
 ###					./AnnotationFiles/BEDfiles/
 ###					hMito_mRNAsANDsurrounding.bed
-###					GENCODE_hg38_proteincoding.sorted.bed
+###					GENCODE_hg38_proteincoding.sorted.bed * too big 
+###					if on O2, can use: /n/groups/churchman/hMitoRP/SequenceFiles/GENCODE_hg38_proteincoding.sorted.bed
 ###
 
 # load required modules
