@@ -31,7 +31,7 @@ Download fasta and gtf files from desired source (e.g. GENCODE) and follow instu
 
 ## 1_AlignData
 
-Steps for complete analysis. Please see each script for dependencies and details
+Follow steps in ./1_AlignData/README.md
 
 ### 1. ProcessFASTQ_hMitoRP.sh LibName inputFASTQ UMI(e.g. 3p6, 3p6_5p4, 3p10_5p4)
    
