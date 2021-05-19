@@ -6,8 +6,8 @@ This repository includes the scripts and annotation files needed to analyze mito
 
 0. Create STAR index
 1. Trim and align raw reads, remove PCR duplicates  >  get library compositions, RPF length distributions, 5' bedgraphs for viewing on IGV
-2. Calculate periodicity on 5' and 3' ends PER RPF LENGTH  >  Needed for accurately determining A-site transformation, in combination with RPF length distibutions (step 1) and Vplots: RPFlength vs. genomic position (step 3)
-3. Make bed files for Vplots  >  5' and 3' plus(P) and minus(M) files for input to ScatterPlotLengths.R to visualize read lengths along genes
+2. Make bed files for Vplots  >  5' and 3' plus(P) and minus(M) files for input to Lengths_vs_Pos_Vplot.R to visualize read lengths along genes
+3. Calculate periodicity on 5' and 3' ends PER RPF LENGTH  >  Needed for accurately determining A-site transformation, in combination with RPF length distibutions (step 1) and Vplots: RPFlength vs. genomic position (step 3)
 4. A-site transformation  >  get periodicity, A-site bedgraphs for viewing on IGV
 5. Count reads on features using featureCounts  >  get unique- and multi- (all-) aligned readcounts across genes. Use in featureCounts_addGeneName_RPK.R to get RPK values
 6. Calculate codon coverage
@@ -29,9 +29,15 @@ Fastq files are deposited in the GEO database under the accession number GSE1732
 ## 0_CreateSTARindex
 Download fasta and gtf files from desired source (e.g. GENCODE) and follow instuctions.txt
 
-## 1_AlignData
+## 1_AlignData  
+Initial alignment and quality control  
+Follow steps in ./1_AlignData/README.md  
 
-Follow steps in ./1_AlignData/README.md
+## 2_MakeLengthBeds  
+Optional step to make Vplots. Depends on output from 1_AlignData  
+Follow steps in ./2_MakeLengthBeds/README.md  
+
+## 3_CountFramePerLength
 
 ### 1. ProcessFASTQ_hMitoRP.sh LibName inputFASTQ UMI(e.g. 3p6, 3p6_5p4, 3p10_5p4)
    
