@@ -1,4 +1,4 @@
-Uses ${LibName}_Aligned.Mito_mRNA.noDups.bam file from 1_AlignData to make 5' and 3' plus and minus bed files to make Vplots (read length vs. genomic position)
+Uses *_Aligned.Mito_mRNA.noDups.bam file from 1_AlignData to make 5' and 3' plus and minus bed files to make Vplots (read length vs. genomic position). Soft-clipped reads are not counted toward length unless they are all As and at the 3' end of the read (so likely part of polyA tail)
 
 
 # 1. Run MakeLengthBeds.sh
