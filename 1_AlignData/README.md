@@ -1,3 +1,5 @@
+This pipeline produces a FASTQC report from adaptor-trimmed raw reads, then filters out human nuclear-encoded ncRNA (rRNA and tRNA), aligns to mito ncRNA, oGAB control oligo, and mouse mito mRNA to retrieve counts, then to the concatenated human and mouse genomes. It removes PCR duplicates and if no UMI was used will need to be modified. It creates 5' end bedGraph files for human mito mRNA-mapping reads for visualization on IGV. See below (#3 Outputs) for the remaining files produced.
+
 # 1. Run ProcessFASTQ_hMitoRP.sh
 Replace S1, S2, etc with library (sample) names, update other variables and number of samples (e.g. for 4 samples use {0..3}), and run code block
 ```bash
