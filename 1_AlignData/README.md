@@ -89,4 +89,7 @@ Libs=("S1" "S2" "S3" "S4")
 # 4. Read length distribution plots
 Open script ./1_AlignData/Scripts/ReadLengthPlot.R with text editor  
 Modify path, experiment name, colors, etc as needed   
-Run in R in interactive node: source('./1_AlignData/Scripts/ReadLengthPlot.R')
+Run in R in interactive node: 
+```bash
+source('./1_AlignData/Scripts/ReadLengthPlot.R')
+```
