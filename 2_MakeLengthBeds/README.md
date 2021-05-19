@@ -21,7 +21,7 @@ done
   - ${LibName}_Mito_mRNA_lengths5p_P.bed  
    
 # 3. Vplots
-Open script ./2_AlignData/Scripts/Length_vs_Pos_Vplot.R with text editor  
+Open script ./2_MakeLengthBeds/Scripts/Length_vs_Pos_Vplot.R with text editor  
 Modify path, experiment name, etc as needed   
 Run in R in interactive node: 
 ```bash
