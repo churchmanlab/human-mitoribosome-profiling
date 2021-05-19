@@ -41,7 +41,7 @@ Libs=("S1" "S2" "S3" "S4")
   done 
   ```
 
-  - Join them
+  - Join them  
     Notes:  
     -j 1: Match on column 1  
     -a1: Print all lines in file1 even if it doesn't have match in file2  
