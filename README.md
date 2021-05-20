@@ -1,4 +1,4 @@
-# Muman mitoribosome profiling analysis
+# Human mitoribosome profiling analysis
 
 This repository includes the scripts and annotation files needed to analyze mitoribosome profiling data generated from human cells with or without mouse spike-in. The directories are listed in order to take raw fastq files through trimming, alignment, quality control, and many other library characteristics. There are README files for each analysis step explaining how scripts are run and what is generated with each. Optimized to run on HMS O2 computing cluster (SLURM job scheduler).
 
@@ -44,17 +44,8 @@ Follow steps in ./3_CountFramePerLength/README.md
 Transforms data to A site and produces A site bedGraphs based on given RPF size range and offsets. Also calculates codon coverage and periodicity for provided RPF sizes. Depends on output from 1_AlignData and you should use information from 2_MakeLengthBeds and 3_CountFramePerLength to decide on size range and offsets.
 Follow steps in ./4_AsiteTransformation/README.md  
 
-
    
-   This should only be run after determining A-site offset and read length sizes to be used. Calls script SAM2hMitoFBED_softClip_<Exp>.py, which provides experiment-specific offsets
-   
-   #### outputs:
-   - ${Experiment}_Asite_${sizeRange}_FrameCount_ignore1st3.txt
-   - ${Experiment}_${sizeRange}_Asite_RPK_inside.txt : Summing of readcounts. This is now replaced by featureCounts (step 5 below)
-   - ${LibName}_Mito_mRNA.noDups.Asite_30to33_P/M.bedGraph : Asite bedGraphs
-   - ${Experiment}_Mito_mRNA.noDups.Asite_31to33_PAll.bedGraph -> which goes into StackedFramesPlot_assignValues.R for ad hoc scoring
-   
-### 5. run_featureCounts_hMitoRP.sh LibName offset
+## 5. run_featureCounts_hMitoRP.sh LibName offset
 
 ### 6. CodonOccupancy.sh LibName sizeRange
 To get codon occupancy, move Asite bedGraphs (${LibName}_Mito_mRNA.noDups.Asite_30to33_P/M.bedGraph) to personal computer, make new directory 'CodonFrequency' and run                                                                                                         

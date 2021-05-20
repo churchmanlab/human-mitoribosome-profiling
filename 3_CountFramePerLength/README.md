@@ -1,4 +1,4 @@
-Uses *_Aligned.Mito_mRNA.noDups.bam file from 1_AlignData  
+Uses \*\_Aligned.Mito\_mRNA.noDups.bam file from 1\_AlignData  
 
 # 1. Run CountFramePerLength.sh
 Replace S1, S2, etc with library (sample) names, open script with text editor to modify RPF lengths analyzed (will work for any sizes 17nt-38nt), and run code block
@@ -28,7 +28,7 @@ done
 ```
 
 # 3. Outputs
-  - *_5p_allFrameCounts.txt
-  - *_3p_allFrameCounts.txt  
+  - \*\_5p\_allFrameCounts.txt
+  - \*\_3p\_allFrameCounts.txt  
   
   Paste into excel or equivalent to make a quick bar plot and see how periodicity looks for each size

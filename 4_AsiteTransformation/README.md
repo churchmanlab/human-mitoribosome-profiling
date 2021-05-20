@@ -49,7 +49,7 @@ sizeRange="31to33"
   ```
 
 # 3. Outputs
-  - A site bedGraphs: *_Mito_mRNA.noDups.Asite_${sizeRange}_P.bedGraph, *_Mito_mRNA.noDups.Asite_${sizeRange}_M.bedGraph
-  - A site bedGraphs with all positions filled, for optional combining: *_Mito_mRNA.noDups.Asite_${sizeRange}_PAll.txt, *_Mito_mRNA.noDups.Asite_${sizeRange}_MAll.txt
-  - A site periodicity: ${Experiment}_Asite_${sizeRange}_FrameCount_ignore1st6.txt
-  - Codon coverage: ${Experiment}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt
+  - A site bedGraphs: \*\_Mito\_mRNA.noDups.Asite\_${sizeRange}\_P.bedGraph, ${LibName}\_Mito\_mRNA.noDups.Asite\_${sizeRange}\_M.bedGraph
+  - A site bedGraphs with all positions filled, for optional combining: ${LibName}\_Mito\_mRNA.noDups.Asite\_${sizeRange}\_PAll.txt, ${LibName}\_Mito\_mRNA.noDups.Asite\_${sizeRange}\_MAll.txt
+  - A site periodicity: ${Experiment}\_Asite\_${sizeRange}\_FrameCount\_ignore1st6.txt
+  - Codon coverage: ${Experiment}\_Asite\_${sizeRange}\_CodonCoverage\_ignore1st6.txt

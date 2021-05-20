@@ -63,7 +63,7 @@ def main(argv=None):
     
     
     sizesrange = [int(i) for i in sizeRange.split('to')]
-    sizelist = list(range(min(sizeslist), max(sizeslist)+1))
+    sizelist = list(range(min(sizesrange), max(sizesrange)+1))
     
     offsetlist = [int(i) for i in offsets.split(',')]
     
@@ -124,7 +124,7 @@ def main(argv=None):
                     elif cigar[-1] != 'S' and (cigar[1] == 'S' or cigar[2] == 'S'):
                         # Split by S then split by M
                         read_size = int(cigar.split('S')[1].split('M')[0])
-                        Asite = getAsitePlus(fiveP,read_size,lower,upper, sizelist, offsetlist))
+                        Asite = getAsitePlus(fiveP,read_size,lower,upper, sizelist, offsetlist)
                     # if there is soft clipping at the 3' end (doesn't matter whether 5' end is soft-clipped or not because cigar.split('S')[-2] will give the M part of the string either way
                     elif cigar[-1] == 'S':
                         tailLength = int(cigar.split('M')[-1].split('S')[0])
@@ -139,11 +139,11 @@ def main(argv=None):
                         # If the tail is all As, add that length 
                         if count == 0:
                             read_size = int(cigar.split('S')[-2].split('M')[0]) + tailLength
-                            Asite = getAsitePlus(fiveP,read_size,lower,upper, sizelist, offsetlist))
+                            Asite = getAsitePlus(fiveP,read_size,lower,upper, sizelist, offsetlist)
                         # If not, ignore tail
                         elif count != 0 :
                             read_size = int(cigar.split('S')[-2].split('M')[0])
-                            Asite = getAsitePlus(fiveP,read_size,lower,upper, sizelist, offsetlist))                            
+                            Asite = getAsitePlus(fiveP,read_size,lower,upper, sizelist, offsetlist)
                     else:
                         continue
                     if Asite != 'OutOfRange':
@@ -169,11 +169,11 @@ def main(argv=None):
                     if 'S' not in cigar:
                         # parse CIGAR string
                         read_size = int(cigar.split('M')[0])
-                        Asite = getAsiteMinus(threeP,read_size,lower,upper, sizelist, offsetlist))
+                        Asite = getAsiteMinus(threeP,read_size,lower,upper, sizelist, offsetlist)
                     # if there is soft clipping only at 5' end (now 5' end is the right side of cigar string)
                     elif cigar[1] != 'S' and cigar[2] != 'S' and cigar[-1] == 'S':
                         read_size = int(cigar.split('M')[0])
-                        Asite = getAsiteMinus(threeP,read_size,lower,upper, sizelist, offsetlist))
+                        Asite = getAsiteMinus(threeP,read_size,lower,upper, sizelist, offsetlist)
                     # if there is soft clipping at the 3' end
                     elif cigar[1] == 'S' or cigar[2] == 'S':
                         tailLength = int(cigar.split('S')[0])
@@ -190,11 +190,11 @@ def main(argv=None):
                             read_size = int(cigar.split('S')[1].split('M')[0]) + tailLength
                             # For minus strand have to adjust the start coordinate
                             threePtail = threeP - tailLength
-                            Asite = getAsiteMinus(threePtail,read_size,lower,upper, sizelist, offsetlist))
+                            Asite = getAsiteMinus(threePtail,read_size,lower,upper, sizelist, offsetlist)
                         # If not, ignore tail
                         elif count != 0 :
                             read_size = int(cigar.split('S')[1].split('M')[0])
-                            Asite = getAsiteMinus(threeP,read_size,lower,upper, sizelist, offsetlist))
+                            Asite = getAsiteMinus(threeP,read_size,lower,upper, sizelist, offsetlist)
                     else:
                         continue
                     

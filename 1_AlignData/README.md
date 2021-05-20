@@ -81,13 +81,13 @@ Libs=("S1" "S2" "S3" "S4")
   ```
   
 # 3. Outputs
-  - Read length distributions for different RNA species: ${Experiment}_${type}_LengthDist.txt
-  - RPF length distributions: ${Experiment}_${type}_noSoftLengthDist.txt
-  - Library compositions: ${Experiment}_Counts.txt
-  - 5' bedGraphs: ${LibName}_Mito_mRNA.noDups.5p.plus.bedGraph, ${LibName}_Mito_mRNA.noDups.5p.plus.bedGraph
+  - Read length distributions for different RNA species: ${Experiment}\_${type}\_LengthDist.txt
+  - RPF length distributions: ${Experiment}\_${type}\_noSoftLengthDist.txt
+  - Library compositions: ${Experiment}\_Counts.txt
+  - 5' bedGraphs: \*\_Mito\_mRNA.noDups.5p.plus.bedGraph, \*\_Mito\_mRNA.noDups.5p.plus.bedGraph
 
 # 4. Read length distribution plots
-Open script ./1_AlignData/Scripts/ReadLengthPlot.R with text editor  
+Open script ./1\_AlignData/Scripts/ReadLengthPlot.R with text editor  
 Modify path, experiment name, colors, etc as needed   
 Run in R in interactive node: 
 ```bash
