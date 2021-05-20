@@ -41,9 +41,8 @@ done
   - Multi read counts (meaning all reads including multi-mappers: ${Experiment}\_featureCounts\_allSizesAsite\_CDSignore1stlast\_multi\_noDups.txt
 
 # 4. Add gene names and calculate RPK
-Open script ./5\_CountReadsOnFeatures/Scripts/AddGeneName_RPK.R with text editor  
-Modify fileName  
-Run in R in interactive node: 
+Run R script AddGeneName_RPK.R
 ```bash
-source('./5_CountReadsOnFeatures/Scripts/AddGeneName_RPK.R')
+Experiment="MitoRP1"
+Rscript ./5_CountReadsOnFeatures/Scripts/AddGeneName_RPK.R $Experiment
 ```
