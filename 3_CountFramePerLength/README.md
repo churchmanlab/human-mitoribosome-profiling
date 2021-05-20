@@ -1,7 +1,7 @@
 Uses *_Aligned.Mito_mRNA.noDups.bam file from 1_AlignData  
 
 # 1. Run CountFramePerLength.sh
-Replace S1, S2, etc with library (sample) names, open script with text editor to modify RPF lengths analyzed, and run code block
+Replace S1, S2, etc with library (sample) names, open script with text editor to modify RPF lengths analyzed (will work for any sizes 17nt-38nt), and run code block
 ```bash
 Libs="S1 S2 S3 S4"
 scriptpath="./3_CountFramePerLength/Scripts/CountFramePerLength.sh"
