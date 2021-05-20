@@ -20,7 +20,7 @@
 ###					
 ###					./3_CountFramePerLength/Scripts/SortSAMbyLength.py
 ###					./3_CountFramePerLength/Scripts/FrameCountBed_chrM_hMito.py
-###					./3_CountFramePerLength/Annotations/BEDfiles/ 
+###					./Annotations/BEDfiles/ 
 ###					cutCodons_hMito_noOverlap.bed (used for frame count)
 
 LibName=$1
@@ -146,25 +146,3 @@ rm ${LibName}_*_FrameCount.txt
 # Remove initial concatenated files without read sizes
 rm ${LibName}_FrameCounts_5p.txt
 rm ${LibName}_FrameCounts_3p.txt
-
-
-################################################
-### After running for all libs, combine all
-Experiment="Li" # OXPHOSinh GalShift MyoDiff1 HelaIP Hela OXPHOSinh2 OXPHOSinh456 HEK HelaFracs Rooijers HEKpearce
-# # # Libs=("Glu_1" "Glu_2" "Gal_30m_1" "Gal_30m_2" "Gal_90m_1" "Gal_90m_2" "Gal_4h_1" "Gal_4h_2" "Gal_72h_1" "Gal_72h_2")
-# # # Libs=("DMSO_1" "ROT_1nM" "ROT_5nM" "ROT_10nM" "ROT_100nM" "AA_1nM" "AA_5nM" "AA_10nM" "AA_100nM" )
-# Libs=("DMSO_1" "DMSO_2" "AA_10nM_1" "AA_10nM_2" "AA_100nM_1" "AA_100nM_2" "AA_500nM_1" "AA_500nM_2" "AA_1uM_1" "AA_1uM_2" "AA_10uM_1" "AA_10uM_2")
-# # # Libs=("NonDiff_1" "NonDiff_2" "Diff_4h_1" "Diff_4h_2" "Diff_2d_1" "Diff_2d_2" "Diff_4d_1" "Diff_4d_2" "Diff_7d_1" "Diff_7d_2" "Diff_10d_1" "Diff_10d_2")
-# # # Libs=("Hela_IP_4U_1" "Hela_IP_4U_2" "Hela_IP_8U_1" "Hela_IP_8U_2")
-# # # Libs=("Hela_noDrug" "Hela_plDrug")
-# Libs=("NT4_1" "DMSO4_1" "AA4_100nM" "DMSO5_1" "DMSO5_2" "AA5_100nM_1" "AA5_100nM_2" "DMSO6_1" "DMSO6_2" "AA6_100nM_1" "AA6_100nM_2")
-# Libs=("WT1_2" "WT2_2")
-# Libs=("H_1_6" "H_2_6" "HM_1_6" "HM_2_6")
-# Libs=("BJ_1" "BJ_2")
-Libs=("HCT_WT1" "HCT_WT2")
-
-ends='5 3'
-for end in $ends
-do
-paste <(awk '{print $1"\t"$2}' ${Libs[0]}_${end}p_FrameCounts.txt) <(awk '{print $2}' ${Libs[1]}_${end}p_FrameCounts.txt) > ${Experiment}_${end}p_allFrameCounts.txt #    <(awk '{print $2}' 
-done

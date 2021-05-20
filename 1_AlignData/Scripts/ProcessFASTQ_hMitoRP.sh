@@ -21,7 +21,7 @@
 ###					extractMolecularBarcodeFrom<UMItype>.py
 ###					removePCRdupsFromBAM_MC20180913.py
 ###
-###					./1_AlignData/AnnotationFiles/bowtieindex/
+###					./Annotations/bowtieindex/
 ###					rRNA_SSU
 ###					rRNA_LSU
 ###					hMito_rRNA
@@ -30,13 +30,13 @@
 ###					hMito_tRNA
 ###					oGAB
 ###
-###					./1_AlignData/AnnotationFiles/STARindex/
+###					./Annotations/STARindex/
 ###					GRCh38_ncRNAs_mM17_merge_riboSeq
 ###					--> Create this first using instructions in 0_CreateSTARindex
 ###					or if on O2, can use: /n/groups/churchman/hMitoRP/SequenceFiles/GRCh38_ncRNAs_mM17_merge_riboSeq
 ###					
 ###					
-###					./1_AlignData/AnnotationFiles/BEDfiles/
+###					./Annotations/BEDfiles/
 ###					hMito_mRNAsANDsurrounding.bed
 ###					GENCODE_hg38_proteincoding.sorted.bed 
 ###					if on O2, can use: /n/groups/churchman/hMitoRP/SequenceFiles/GENCODE_hg38_proteincoding.sorted.bed
@@ -112,42 +112,42 @@ fastqc ${LibName}_Cleaned.fastq
 # 5. oGAB bowtie 5' trim 1mm
 
 # Cyto SSU rRNA
-bowtie -v 1 -5 1 -S ./1_AlignData/AnnotationFiles/bowtieindex/rRNA_SSU ${LibName}_Cleaned.fastq ${LibName}_Nuc_SSUrRNA_almts.sam --un ${LibName}_Nuc_SSUrRNA_un.fastq
+bowtie -v 1 -5 1 -S ./Annotations/bowtieindex/rRNA_SSU ${LibName}_Cleaned.fastq ${LibName}_Nuc_SSUrRNA_almts.sam --un ${LibName}_Nuc_SSUrRNA_un.fastq
 rm ${LibName}_Nuc_SSUrRNA_almts.sam
 
 # Cyto LSU rRNA
-bowtie -v 1 -5 1 -S ./1_AlignData/AnnotationFiles/bowtieindex/rRNA_LSU ${LibName}_Nuc_SSUrRNA_un.fastq ${LibName}_Nuc_LSUrRNA_almts.sam --un ${LibName}_Nuc_LSUrRNA_un.fastq
+bowtie -v 1 -5 1 -S ./Annotations/bowtieindex/rRNA_LSU ${LibName}_Nuc_SSUrRNA_un.fastq ${LibName}_Nuc_LSUrRNA_almts.sam --un ${LibName}_Nuc_LSUrRNA_un.fastq
 rm ${LibName}_Nuc_SSUrRNA_un.fastq
 rm ${LibName}_Nuc_LSUrRNA_almts.sam
 
 # Mito rRNA
-bowtie -v 1 -5 1 -S ./1_AlignData/AnnotationFiles/bowtieindex/hMito_rRNA ${LibName}_Nuc_LSUrRNA_un.fastq ${LibName}_hMito_rRNA_almts.sam --al ${LibName}_hMito_rRNA_al.fastq --un ${LibName}_hMito_rRNA_un.fastq
+bowtie -v 1 -5 1 -S ./Annotations/bowtieindex/hMito_rRNA ${LibName}_Nuc_LSUrRNA_un.fastq ${LibName}_hMito_rRNA_almts.sam --al ${LibName}_hMito_rRNA_al.fastq --un ${LibName}_hMito_rRNA_un.fastq
 rm ${LibName}_Nuc_LSUrRNA_un.fastq
 rm ${LibName}_hMito_rRNA_almts.sam
 
 # Mouse mito mRNA
 # First filter input fastq so that only read lengths >= 20 are kept for this part
 cutadapt -m 20 ${LibName}_hMito_rRNA_un.fastq -o ${LibName}_hMito_rRNA_20up_un.fastq
-bowtie -v 0 -5 1 -S ./1_AlignData/AnnotationFiles/bowtieindex/mMito_mRNAs ${LibName}_hMito_rRNA_20up_un.fastq ${LibName}_mMito_mRNAs_0mm.sam --al ${LibName}_mMito_mRNAs_0mm_al.fastq
+bowtie -v 0 -5 1 -S ./Annotations/bowtieindex/mMito_mRNAs ${LibName}_hMito_rRNA_20up_un.fastq ${LibName}_mMito_mRNAs_0mm.sam --al ${LibName}_mMito_mRNAs_0mm_al.fastq
 rm ${LibName}_hMito_rRNA_20up_un.fastq
 # Cyto tRNA
-bowtie -v 1 -3 3 -5 1 -S ./1_AlignData/AnnotationFiles/bowtieindex/tRNAs ${LibName}_hMito_rRNA_un.fastq ${LibName}_Nuc_tRNA_almts.sam --un ${LibName}_Nuc_tRNA_un.fastq
+bowtie -v 1 -3 3 -5 1 -S ./Annotations/bowtieindex/tRNAs ${LibName}_hMito_rRNA_un.fastq ${LibName}_Nuc_tRNA_almts.sam --un ${LibName}_Nuc_tRNA_un.fastq
 rm ${LibName}_Nuc_tRNA_almts.sam
 
 # Mito tRNA
-bowtie -v 1 -3 3 -5 1 -S ./1_AlignData/AnnotationFiles/bowtieindex/hMito_tRNA ${LibName}_Nuc_tRNA_un.fastq ${LibName}_hMito_tRNA_almts.sam --al ${LibName}_hMito_tRNA_al.fastq
+bowtie -v 1 -3 3 -5 1 -S ./Annotations/bowtieindex/hMito_tRNA ${LibName}_Nuc_tRNA_un.fastq ${LibName}_hMito_tRNA_almts.sam --al ${LibName}_hMito_tRNA_al.fastq
 rm ${LibName}_hMito_tRNA_almts.sam
 
 
 ################ MAP to genome with STAR #################
 
-STAR --runThreadN 4 --genomeDir ./1_AlignData/AnnotationFiles/STARindex/GRCh38_ncRNAs_mM17_merge_riboSeq --readFilesIn ${LibName}_hMito_rRNA_un.fastq --outFileNamePrefix ${LibName}_ --outSAMtype BAM SortedByCoordinate --outSAMattributes NH HI AS nM NM MD --outFilterIntronMotifs RemoveNoncanonicalUnannotated --outFilterMultimapNmax 1000 --outFilterMismatchNoverReadLmax 0.07 --outFilterMismatchNmax 3 --outReadsUnmapped Fastx
+STAR --runThreadN 4 --genomeDir ./Annotations/STARindex/GRCh38_ncRNAs_mM17_merge_riboSeq --readFilesIn ${LibName}_hMito_rRNA_un.fastq --outFileNamePrefix ${LibName}_ --outSAMtype BAM SortedByCoordinate --outSAMattributes NH HI AS nM NM MD --outFilterIntronMotifs RemoveNoncanonicalUnannotated --outFilterMultimapNmax 1000 --outFilterMismatchNoverReadLmax 0.07 --outFilterMismatchNmax 3 --outReadsUnmapped Fastx
 # 
 rm -r ${LibName}__STARtmp
 rm ${LibName}_SJ.out.tab
 
 # Map to oGAB
-bowtie -v 1 -5 1 -S ./1_AlignData/AnnotationFiles/bowtieindex/oGAB ${LibName}_Unmapped.out.mate1 ${LibName}_oGAB_almts.sam
+bowtie -v 1 -5 1 -S ./Annotations/bowtieindex/oGAB ${LibName}_Unmapped.out.mate1 ${LibName}_oGAB_almts.sam
 rm ${LibName}_oGAB_almts.sam
 # 
 # # ############ Get counts from mapping ###########
@@ -199,12 +199,12 @@ python ./1_AlignData/Scripts/removePCRdupsFromBAM_MC20180913.py ${LibName}_mMito
 samtools sort -@ 3 -o ${LibName}_Aligned_noDups.sort.bam ${LibName}_Aligned_noDups.bam
 
 ## Choose coordinates by specifying mito bed file
-samtools view -@ 3 -b -o ${LibName}_Aligned.Mito_mRNA.noDups.bam -L ./1_AlignData/AnnotationFiles/BEDfiles/hMito_mRNAsANDsurrounding.bed ${LibName}_Aligned_noDups.sort.bam
+samtools view -@ 3 -b -o ${LibName}_Aligned.Mito_mRNA.noDups.bam -L ./Annotations/BEDfiles/hMito_mRNAsANDsurrounding.bed ${LibName}_Aligned_noDups.sort.bam
 # And hNuc mRNA only file
-samtools view -@ 3 -b -o ${LibName}_Aligned.Nuc_mRNA.noDups.bam -L ./1_AlignData/AnnotationFiles/BEDfiles/GENCODE_hg38_proteincoding.sorted.bed ${LibName}_Aligned_noDups.sort.bam
+samtools view -@ 3 -b -o ${LibName}_Aligned.Nuc_mRNA.noDups.bam -L ./Annotations/BEDfiles/GENCODE_hg38_proteincoding.sorted.bed ${LibName}_Aligned_noDups.sort.bam
 
 # Also for non-deduplicated file, to get counts
-samtools view -@ 3 -b -o ${LibName}_hMito_mRNA_Aligned.sortedByCoord.out.bam -L ./1_AlignData/AnnotationFiles/BEDfiles/hMito_mRNAsANDsurrounding.bed ${LibName}_Aligned.sortedByCoord.out.bam
+samtools view -@ 3 -b -o ${LibName}_hMito_mRNA_Aligned.sortedByCoord.out.bam -L ./Annotations/BEDfiles/hMito_mRNAsANDsurrounding.bed ${LibName}_Aligned.sortedByCoord.out.bam
 
 # ############ Get counts from noDups ###########
 echo '' >> ${LibName}_Counts.txt

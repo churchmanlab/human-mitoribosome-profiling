@@ -1,1 +1,0 @@
-GENCODE_hg38_proteincoding.sorted.bed filter=lfs diff=lfs merge=lfs -text

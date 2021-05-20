@@ -6,7 +6,7 @@ import sys
 infilename_plus = sys.argv[1]
 infilename_minus = sys.argv[2]
 LibName = sys.argv[3]
-CodonFile = open('./3_CountFramePerLength/Annotations/BEDfiles/cutCodons_hMito_noOverlap.bed','r') 
+CodonFile = open('./Annotations/BEDfiles/cutCodons_hMito_noOverlap.bed','r') 
 
 #Make lists of positions for each frame
 Frame1Positions_plus = []

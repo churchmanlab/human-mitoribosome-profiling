@@ -20,9 +20,8 @@
 ###					./4_AsiteTransformation/Scripts/SAM2hMitoFBED_softClip.py
 ###					./4_AsiteTransformation/Scripts/FillMissingPositionsBedGraph.py
 ###					./4_AsiteTransformation/Scripts/FrameCountBed_chrM_ignore1st3.py
-###					./4_AsiteTransformation/Annotations/chrM.chrom.sizes 
-###					./4_AsiteTransformation/Annotations/BEDfiles/
-###					cutCodons_hMito_noOverlap.bed
+###					./Annotations/chrM.chrom.sizes 
+###					./Annotations/BEDfiles/cutCodons_hMito_noOverlap.bed
 
 # load required modules
 module load gcc/6.2.0
@@ -51,9 +50,9 @@ python $Ascript -i ${LibName}_Aligned.Mito_mRNA.noDups_for${sizeRange}.sam -s ${
 # 
 # # # convert to bedGraph
 # # # plus
-genomeCoverageBed -bga -trackline -i ${LibName}_Aligned.Mito_mRNA.noDups.Asite_${sizeRange}_P.bed -g ./4_AsiteTransformation/Annotations/chrM.chrom.sizes > ${LibName}_Mito_mRNA.noDups.Asite_${sizeRange}_P.bedGraph
+genomeCoverageBed -bga -trackline -i ${LibName}_Aligned.Mito_mRNA.noDups.Asite_${sizeRange}_P.bed -g ./Annotations/chrM.chrom.sizes > ${LibName}_Mito_mRNA.noDups.Asite_${sizeRange}_P.bedGraph
 # # # minus
-genomeCoverageBed -bga -trackline -i ${LibName}_Aligned.Mito_mRNA.noDups.Asite_${sizeRange}_M.bed -g ./4_AsiteTransformation/Annotations/chrM.chrom.sizes > ${LibName}_Mito_mRNA.noDups.Asite_${sizeRange}_M.bedGraph
+genomeCoverageBed -bga -trackline -i ${LibName}_Aligned.Mito_mRNA.noDups.Asite_${sizeRange}_M.bed -g ./Annotations/chrM.chrom.sizes > ${LibName}_Mito_mRNA.noDups.Asite_${sizeRange}_M.bedGraph
 # 
 rm ${LibName}_Aligned.Mito_mRNA.noDups_for${sizeRange}.sam 
 rm ${LibName}_Aligned.Mito_mRNA.noDups.Asite_${sizeRange}_P.bed
