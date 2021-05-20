@@ -46,3 +46,4 @@ Run R script AddGeneName_RPK.R
 Experiment="MitoRP1"
 Rscript ./5_CountReadsOnFeatures/Scripts/AddGeneName_RPK.R $Experiment
 ```
+This produces 2 new files: \*\_mito_readCount.txt and \*\_mito_RPK.txt

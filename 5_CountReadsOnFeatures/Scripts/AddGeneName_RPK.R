@@ -106,8 +106,8 @@ setcolorder(DT_RPK, colorder)
 
 # Write tables to file
 if (pseudo == 'include' & ncRNA == 'include') {
-write.table(hDT, file=paste0(path, fileName, '_', geneSet,'_readCount.txt'), row.names=FALSE, sep=("\t"), quote=FALSE)
-write.table(DT_RPK, file=paste0(path, fileName, '_', geneSet, '_RPK.txt'), row.names=FALSE, sep=("\t"), quote=FALSE)
+write.table(hDT, file=paste0(path, fileName, '_', geneSet,'_readCount_all.txt'), row.names=FALSE, sep=("\t"), quote=FALSE)
+write.table(DT_RPK, file=paste0(path, fileName, '_', geneSet, '_RPK_all.txt'), row.names=FALSE, sep=("\t"), quote=FALSE)
 }
 
 if (pseudo == 'exclude' & ncRNA == 'include') {
@@ -116,8 +116,8 @@ write.table(DT_RPK, file=paste0(path, fileName, '_', geneSet, '_RPK_noPseudo.txt
 }
 
 if (pseudo == 'exclude' & ncRNA == 'exclude') {
-write.table(hDT, file=paste0(path, fileName, '_', geneSet, '_readCount_noPseudo_ncRNA.txt'), row.names=FALSE, sep=("\t"), quote=FALSE)
-write.table(DT_RPK, file=paste0(path, fileName, '_', geneSet, '_RPK_noPseudo_ncRNA.txt'), row.names=FALSE,  sep=("\t"), quote=FALSE)
+write.table(hDT, file=paste0(path, fileName, '_', geneSet, '_readCount.txt'), row.names=FALSE, sep=("\t"), quote=FALSE)
+write.table(DT_RPK, file=paste0(path, fileName, '_', geneSet, '_RPK.txt'), row.names=FALSE,  sep=("\t"), quote=FALSE)
 }
 
 # source('./5_CountReadsOnFeatures/Scripts/AddGeneName_RPK.R')
