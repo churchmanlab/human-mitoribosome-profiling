@@ -1,4 +1,4 @@
-This pipeline produces a FASTQC report from adaptor-trimmed raw reads, then filters out human nuclear-encoded ncRNA (rRNA and tRNA), aligns to mito ncRNA, oGAB control oligo, and mouse mito mRNA to retrieve counts, then to the concatenated human and mouse genomes. It removes PCR duplicates and if no UMI was used will need to be modified. It creates 5' end bedGraph files for human mito mRNA-mapping reads for visualization on IGV. See below (#3 Outputs) for the remaining files produced.
+This script produces A site bedGraphs for specified size range and offsets, as well as periodicity and coverage stats. 
 
 # 1. Run AsiteAndCountFrame.sh
 Replace S1, S2, etc with library (sample) names, choose size range based on outputs from steps (1), (2), and (3), and run code block
