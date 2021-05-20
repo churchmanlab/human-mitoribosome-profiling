@@ -11,7 +11,7 @@ library(stringr)
 Folder = 'hMitoRP1' 
 Experiment = 'hMitoRP1' 
 Species = 'Aligned.Mito_mRNA.noDups_noSoft' # hMito_tRNA_al_ hMito_rRNA_al_ Aligned.Nuc_mRNA.noDups.uniq_ Aligned.Mito_mRNA.noDups.uniq_ Aligned.Mito_mRNA.noDups_noSoft Cleaned_
-path = 'pathToLengthDistributionsFile/'
+path = paste0(getwd(),'/')
 colors=c('dodgerblue', 'forestgreen', 'gold1', 'red')
 
 
@@ -45,7 +45,7 @@ revSampNames = rev(samples)
 # setcolorder(sampNormDT, revSampNames)
 
 # Heat Plot
-pdf(paste0(path, Experiment,'_',Species, 'LengthDist_heatplot.pdf'),
+pdf(paste0(path, Experiment,'_',Species, '_LengthDist_heatplot.pdf'),
      width=4,
      height=2.3,
      )
@@ -59,7 +59,7 @@ dev.off()
 # Line Plot
 xlimits=c(11,40)
 ylimits=c(0,15)
-pdf(paste0(path, Experiment,'_',Species, 'LengthDist_lineplot.pdf', sep = ''),
+pdf(paste0(path, Experiment,'_',Species, '_LengthDist_lineplot.pdf', sep = ''),
      width=3,
      height=3.5,
      pointsize=10.5

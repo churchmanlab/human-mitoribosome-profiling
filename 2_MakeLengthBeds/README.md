@@ -22,7 +22,7 @@ done
    
 # 3. Vplots
 Open script ./2\_MakeLengthBeds/Scripts/Length\_vs\_Pos\_Vplot.R with text editor  
-Modify path, experiment name, etc as needed   
+Modify experiment name, etc as needed   
 Run in R in interactive node: 
 ```bash
 source('./2_MakeLengthBeds/Scripts/Length_vs_Pos_Vplot.R')

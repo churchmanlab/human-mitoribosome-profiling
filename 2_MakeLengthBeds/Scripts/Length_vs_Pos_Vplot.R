@@ -5,7 +5,7 @@ Experiment='hMitoRP1'
 libName <- 'S1'
 zoom = 'start' # start none stop
 
-path <- path = 'pathToBedFiles/'
+path = paste0(getwd(),'/')
 ylimits = c(10,40)
 
 

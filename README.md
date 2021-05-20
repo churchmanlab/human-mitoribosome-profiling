@@ -44,8 +44,9 @@ Follow steps in ./3_CountFramePerLength/README.md
 Transforms data to A site and produces A site bedGraphs based on given RPF size range and offsets. Also calculates codon coverage and periodicity for provided RPF sizes. Depends on output from 1_AlignData and you should use information from 2_MakeLengthBeds and 3_CountFramePerLength to decide on size range and offsets.
 Follow steps in ./4_AsiteTransformation/README.md  
 
-   
-## 5. run_featureCounts_hMitoRP.sh LibName offset
+## 5_CountReadsOnFeatures
+Get read counts on genes using featureCounts from Rsubread R package. Script and annotations are included to convert gene IDs to gene names and calculate RPK.
+Follow steps in ./5\_CountReadsOnFeatures/README.md
 
-### 6. CodonOccupancy.sh LibName sizeRange
+## 6_CodonOccupancy
 To get codon occupancy, move Asite bedGraphs (${LibName}_Mito_mRNA.noDups.Asite_30to33_P/M.bedGraph) to personal computer, make new directory 'CodonFrequency' and run                                                                                                         
