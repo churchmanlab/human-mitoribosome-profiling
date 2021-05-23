@@ -1,4 +1,4 @@
-This script uses A site bedGraphs from step 4 and calculates mean and individual codon occupancy. 
+This script uses A site bedGraphs from step 4 and calculates mean and individual codon occupancies. 
 
 # 1. Run CodonOccupancy.sh
 This script calls python scripts that require biopython, numpy and scipy, so first need to set up a python virtual environment to install packages.  

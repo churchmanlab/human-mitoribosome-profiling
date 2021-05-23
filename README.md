@@ -26,11 +26,11 @@ To install:
 Download zipped repository and unzip into directory with *fastq.gz files.  
 Run all code blocks in steps 1-6 from this top directory.  
 Intermediate as well as many other useful files will output to subdirectories.  
-Final results and plots will output to working directory.
+Final results and plots will output to working directory.  
 logs/ contains all logs, including error logs
 
-Required R packages: data.table, pheatmap, inlmisc, RColorBrewer, stringr, scales, Rsubread, rlist, Rfast
-To install packages
+Required R packages: data.table, pheatmap, inlmisc, RColorBrewer, stringr, scales, Rsubread, rlist, Rfast  
+To install packages:
 ```bash
 # Enter interactive node on O2
 srun -p interactive --pty --mem=10G -t 0-02:00 /bin/bash
@@ -66,8 +66,8 @@ Transforms data to A site and produces A site bedGraphs based on given RPF size 
 Follow steps in ./4_AsiteTransformation/README.md  
 
 ## 5_CountReadsOnFeatures
-Get read counts on genes using featureCounts from Rsubread R package. Script and annotations are included to convert gene IDs to gene names and calculate RPK.
+Get read counts on genes using featureCounts from Rsubread R package. Script and annotations are included to convert gene IDs to gene names and calculate RPK.  
 Follow steps in ./5\_CountReadsOnFeatures/README.md
 
 ## 6_CodonOccupancy
-To get codon occupancy, move Asite bedGraphs (${LibName}_Mito_mRNA.noDups.Asite_30to33_P/M.bedGraph) to personal computer, make new directory 'CodonFrequency' and run                                                                                                         
+Get codon occupancy and make bar plots of mean occupancy, box plots of individual codon occupancy, and scatter plots of codon occupancy vs tRNA abundance. Follow steps in ./6_CodonOccupancy/README.md                                                                                                        
