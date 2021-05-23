@@ -63,7 +63,7 @@ sizeRange="31to33"
 Rscript ./6_CodonOccupancy/Scripts/CodonDensities_tRNAabundance.R $Experiment $sizeRange
 ```
 This produces 3 plot files: 
-- Barplot of mean codon occupancies with a bar for each sample
+- Barplot of mean codon occupancies with a bar for each sample. Modify script to plot others.
   - \*_CodonDens_barplot.pdf
 - Boxplots of individual codon occupancies for Asp, Leu, Phe for each sample
   - \*_indCodonDens_boxplot.pdf
