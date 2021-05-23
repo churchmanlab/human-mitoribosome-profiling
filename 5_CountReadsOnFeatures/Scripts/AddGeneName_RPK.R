@@ -3,6 +3,7 @@
 # Get arguments
 args <- commandArgs(trailingOnly = TRUE)
 Exp <- args[1]
+type <- args[2] # multi unique
 
 library(data.table)
 library(rlist)
@@ -12,7 +13,7 @@ pseudo = 'exclude' # include exclude
 ncRNA = 'exclude'
 geneSet = 'mito'
 
-fileName = paste0(Exp, '_featureCounts_allSizesAsite_CDSignore1stlast_multi_noDups.txt')
+fileName = paste0(Exp, '_featureCounts_allSizesAsite_CDSignore1stlast_',type,'_noDups.txt')
 path = paste0(getwd(),'/')
 
 DT <- data.table(read.table(paste0(path, fileName), sep = '\t', quote = '', header=TRUE, stringsAsFactors = FALSE))

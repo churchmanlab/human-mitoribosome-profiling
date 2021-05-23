@@ -13,3 +13,4 @@
     sbatch -p short -t 0-3:00 -c 6 --mem=100G --wrap="STAR --runThreadN 6 --runMode genomeGenerate --genomeDir GRCh38_ncRNAs_mM17_merge_riboSeq --genomeFastaFiles GRCh38_ncRNAs_mM17_merge.formatted.fasta --sjdbGTFfile mGenome_ALL_mM17_gencode.gtf --sjdbOverhang 50"
 
 4. Place in correct directory: ./Annotations/STARindex/GRCh38_ncRNAs_mM17_merge_riboSeq
+   Alternatively, place in any desired location and modify STARindexPATH variable in the script 1_AlignData/Scripts/ProcessFASTQ_hMitoRP.sh

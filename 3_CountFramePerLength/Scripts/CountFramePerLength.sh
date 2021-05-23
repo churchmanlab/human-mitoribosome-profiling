@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -c 4
-#SBATCH -t 0-06:00
+#SBATCH -t 0-12:00
 #SBATCH -p short
 #SBATCH --mem=30G
 #SBATCH --mail-type=FAIL
@@ -27,19 +27,19 @@ LibName=$1
 
 # Define sequence lengths being quarried
 # sizes='18 19 20 21 29 30 31 32 33 34 35'
-sizes='25 26 27 28 29 30 31 32'
+sizes='31 32 33'
 
-
+cd 3_CountFramePerLength
 
 echo ${LibName}
 
 # BAM to SAM
 echo Converting to sam
-samtools view -@ 3 -h ${LibName}_Aligned.Mito_mRNA.noDups.bam -o ${LibName}_Aligned.Mito_mRNA.noDups_temp.sam
+samtools view -@ 3 -h ../1_AlignData/${LibName}_Aligned.Mito_mRNA.noDups.bam -o ${LibName}_Aligned.Mito_mRNA.noDups_temp.sam
 
 # Split SAM according to length
 echo Sorting sam by length
-python ./3_CountFramePerLength/Scripts/SortSAMbyLength.py ${LibName}_Aligned.Mito_mRNA.noDups_temp.sam
+python ./Scripts/SortSAMbyLength.py ${LibName}_Aligned.Mito_mRNA.noDups_temp.sam
 echo Done
 rm ${LibName}_Aligned.Mito_mRNA.noDups_temp.sam
 
@@ -93,14 +93,14 @@ done
 for x in $sizes
 do
 echo Doing frame count for ${x}.5p
-python ./3_CountFramePerLength/Scripts/FrameCountBed_chrM_hMito.py ${LibName}_Mito_mRNA.noDups_${x}.5pP.bedGraph ${LibName}_Mito_mRNA.noDups_${x}.5pM.bedGraph ${LibName}_${x}_5p
+python ./Scripts/FrameCountBed_chrM_hMito.py ${LibName}_Mito_mRNA.noDups_${x}.5pP.bedGraph ${LibName}_Mito_mRNA.noDups_${x}.5pM.bedGraph ${LibName}_${x}_5p
 done
 
 # # Frame Count from 3'
 for x in $sizes
 do
 echo Doing frame count for ${x}.3p
-python ./3_CountFramePerLength/Scripts/FrameCountBed_chrM_hMito.py ${LibName}_Mito_mRNA.noDups_${x}.3pP.bedGraph ${LibName}_Mito_mRNA.noDups_${x}.3pM.bedGraph ${LibName}_${x}_3p
+python ./Scripts/FrameCountBed_chrM_hMito.py ${LibName}_Mito_mRNA.noDups_${x}.3pP.bedGraph ${LibName}_Mito_mRNA.noDups_${x}.3pM.bedGraph ${LibName}_${x}_3p
 done
 
 for x in $sizes

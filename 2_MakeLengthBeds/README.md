@@ -21,9 +21,18 @@ done
   - \*\_Mito\_mRNA\_lengths5p\_M.bed  
    
 # 3. Vplots
-Open script ./2\_MakeLengthBeds/Scripts/Length\_vs\_Pos\_Vplot.R with text editor  
-Modify experiment name, etc as needed   
-Run in R in interactive node: 
+Requires the following R packages: scales
+Modify commands below as needed and  
+run: 
 ```bash
-source('./2_MakeLengthBeds/Scripts/Length_vs_Pos_Vplot.R')
+Experiment="MitoRP1"
+libName="S1"
+zoom="none" # none start stop
+
+module load R/4.0.1
+cd 2_MakeLengthBeds
+Rscript ./Scripts/Length_vs_Pos_Vplot.R $Experiment $libName $zoom
+mv *.png ../.
+cd ../
 ```
+Note: beware of ND6 in these plots. Reverse strand may not be coded correctly for some zoom levels

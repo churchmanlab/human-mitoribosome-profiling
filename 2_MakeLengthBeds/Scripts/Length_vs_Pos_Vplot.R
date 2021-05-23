@@ -1,9 +1,13 @@
+#!/n/app/R/4.0.1/bin/Rscript
+
 
 library('scales')
 
-Experiment='hMitoRP1'
-libName <- 'S1'
-zoom = 'start' # start none stop
+args <- commandArgs(trailingOnly = TRUE)
+Experiment <- args[1]
+libName <- args[2]
+zoom <- args[3]
+
 
 path = paste0(getwd(),'/')
 ylimits = c(10,40)

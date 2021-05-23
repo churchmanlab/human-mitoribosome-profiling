@@ -5,7 +5,7 @@ import sys
 infilename_plus = sys.argv[1]
 infilename_minus = sys.argv[2]
 LibName = sys.argv[3]
-CodonFile = open('./Annotations/BEDfiles/cutCodons_hMito_noOverlap.bed','r')  
+CodonFile = open('../Annotations/BEDfiles/cutCodons_hMito_noOverlap.bed','r')  
 
 
 #Open the bedGraph file to read

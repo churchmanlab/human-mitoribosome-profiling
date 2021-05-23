@@ -33,6 +33,7 @@ LibName=$1
 offset=$2 # distance to shift signal from 3' end
 PWD=`pwd`
 
+cd 5_CountReadsOnFeatures
 
 ############ COUNT READS ON FEATURES ###########
 
@@ -40,7 +41,7 @@ PWD=`pwd`
 # Note: Here use CDS as GTF.featureType. This gtf is modified to remove first 6 codons and last 5 codons of CDS, as well as all overlapping regions
 
 
-./5_CountReadsOnFeatures/Scripts/featureCounts_hMitoRP_allSizesAsiteOverlap_CDS.R ${LibName} ${PWD} $offset
+./Scripts/featureCounts_hMitoRP_allSizesAsiteOverlap_CDS.R ${LibName} ${PWD} $offset
 
 # Add headers to files
 sed  -i '1i\GeneID\t'${LibName} ${LibName}_mito_featureCounts_allSizesAsite_CDSignore1stlast_multi_noDups.txt

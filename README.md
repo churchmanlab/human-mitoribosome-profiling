@@ -9,7 +9,7 @@ This repository includes the scripts and annotation files needed to analyze mito
 2. Make bed files for Vplots  >  5' and 3' plus(P) and minus(M) files for input to Lengths_vs_Pos_Vplot.R to visualize read lengths along genes
 3. Calculate periodicity on 5' and 3' ends PER RPF LENGTH  >  Needed for accurately determining A-site transformation, in combination with RPF length distibutions (step 1) and Vplots: RPFlength vs. genomic position (step 2)
 4. A-site transformation  >  get periodicity and coverage, A-site bedgraphs for viewing on IGV
-5. Count reads on features using featureCounts  >  get unique- and multi- (all-) aligned readcounts across genes. Use in featureCounts_addGeneName_RPK.R to get RPK values
+5. Count reads on features using featureCounts  >  get unique- and multi- (all-) aligned readcounts across genes. Use in AddGeneName_RPK.R to get RPK values
 6. Get codon occupancy
 
 # Data availability and manuscript
@@ -22,11 +22,32 @@ Fastq files are deposited in the GEO database under the accession number GSE1732
 
 
 
+To install:  
+Download zipped repository and unzip into directory with *fastq.gz files.  
+Run all code blocks in steps 1-6 from this top directory.  
+Intermediate as well as many other useful files will output to subdirectories.  
+Final results and plots will output to working directory.
+logs/ contains all logs, including error logs
 
+Required R packages: data.table, pheatmap, inlmisc, RColorBrewer, stringr, scales, Rsubread, rlist, Rfast
+To install packages
+```bash
+# Enter interactive node on O2
+srun -p interactive --pty --mem=10G -t 0-02:00 /bin/bash
+# Load R module
+module load R/4.0.1
+# Begin R session on command line
+R
+```
+```
+install.packages(c('data.table', 'pheatmap', 'inlmisc', 'RColorBrewer', 'stringr', 'scales', 'Rsubread', 'rlist', 'Rfast')
+quit()
+exit
+```
 
 
 ## 0_CreateSTARindex
-Download fasta and gtf files from desired source (e.g. GENCODE) and follow instuctions.txt
+Download fasta and gtf files from desired source (e.g. GENCODE) and follow instuctions.txt  
 
 ## 1_AlignData  
 Initial alignment and quality control  

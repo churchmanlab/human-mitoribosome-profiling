@@ -1,15 +1,16 @@
+#!/n/app/R/4.0.1/bin/Rscript
 
 
 library(data.table)
 library(pheatmap)
-library(inlmisc)
+# library(inlmisc)
 library(RColorBrewer)
 library(stringr)
 # display.brewer.all()
 
 
-Folder = 'hMitoRP1' 
-Experiment = 'hMitoRP1' 
+Folder = 'MitoRP1' 
+Experiment = 'MitoRP1' 
 Species = 'Aligned.Mito_mRNA.noDups_noSoft' # hMito_tRNA_al_ hMito_rRNA_al_ Aligned.Nuc_mRNA.noDups.uniq_ Aligned.Mito_mRNA.noDups.uniq_ Aligned.Mito_mRNA.noDups_noSoft Cleaned_
 path = paste0(getwd(),'/')
 colors=c('dodgerblue', 'forestgreen', 'gold1', 'red')
@@ -50,8 +51,10 @@ pdf(paste0(path, Experiment,'_',Species, '_LengthDist_heatplot.pdf'),
      height=2.3,
      )
 
-   
-pheatmap(t(as.matrix(sampNormDT, rownames=lower$Length)), cluster_rows = FALSE, cluster_cols = FALSE, border_color = NA, col = GetColors(256, "YlOrBr"), na_col = "white",legend=TRUE, scale = "none", cex=.9) # cm.colors(256)  GetColors(256, "YlOrBr") brewer.pal(n=9,name='Blues')
+# Expand RcolorBrewer palette YlOrRd
+palette=colorRampPalette(brewer.pal(9, "YlOrRd"))(100)
+
+pheatmap(t(as.matrix(sampNormDT, rownames=lower$Length)), cluster_rows = FALSE, cluster_cols = FALSE, border_color = NA, col = palette, na_col = "white",legend=TRUE, scale = "none", cex=.9) # cm.colors(256)  GetColors(256, "YlOrBr") brewer.pal(n=9,name='Blues') heat.colors(256) 
 
 dev.off()
 
@@ -68,7 +71,7 @@ pdf(paste0(path, Experiment,'_',Species, '_LengthDist_lineplot.pdf', sep = ''),
 plot(spline(normDT$Length,normDT[[samples[1]]], method = 'n', n=150), type = 'l', lwd = 3, col = colors[1], ylim = ylimits, xlab = 'Length', ylab = '%', xlim = xlimits)
 
 for (i in c(2:n)) {
-lines(spline(normDT$Length,normDT[[sampNames[i]]], method = 'n', n=150), lwd = 3, col = colors[i], lty=1)
+lines(spline(normDT$Length,normDT[[samples[i]]], method = 'n', n=150), lwd = 3, col = colors[i], lty=1)
 }
 
 legend('topleft', legend=c(samples), col=c(colors), lty=1, lwd = 3, cex=0.7, bty='n') 

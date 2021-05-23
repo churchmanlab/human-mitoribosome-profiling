@@ -26,19 +26,24 @@ sizeRange="31to33"
 - A site frame count (periodicity)
   - Be sure to modify paste command based on number of samples you have in your experiment
   ```bash
-  paste <(awk '{print $2"\t"$3}' ${Libs[0]}_Asite_${sizeRange}_FrameCount_ignore1st6.txt) <(awk '{print $3}' ${Libs[1]}_Asite_${sizeRange}_FrameCount_ignore1st6.txt) <(awk '{print $3}' ${Libs[2]}_Asite_${sizeRange}_FrameCount_ignore1st6.txt) <(awk '{print $3}' ${Libs[3]}_Asite_${sizeRange}_FrameCount_ignore1st6.txt) > ${Experiment}_Asite_${sizeRange}_FrameCount_ignore1st6.txt
+  cd 4_AsiteTransformation
+  paste <(awk '{print $2"\t"$3}' ${Libs[0]}_Asite_${sizeRange}_FrameCount_ignore1st6.txt) <(awk '{print $3}' ${Libs[1]}_Asite_${sizeRange}_FrameCount_ignore1st6.txt) <(awk '{print $3}' ${Libs[2]}_Asite_${sizeRange}_FrameCount_ignore1st6.txt) <(awk '{print $3}' ${Libs[3]}_Asite_${sizeRange}_FrameCount_ignore1st6.txt) > ../${Experiment}_Asite_${sizeRange}_FrameCount_ignore1st6.txt
+  cd ..
   ```
 
 - Codon coverage  
   - Be sure to modify paste command based on number of samples you have in your experiment
   ```bash
-  paste <(awk '{print $1"\t"$2}' ${Libs[0]}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt) <(awk '{print $2}' ${Libs[1]}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt) <(awk '{print $2}' ${Libs[2]}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt) <(awk '{print $2}' ${Libs[3]}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt) > ${Experiment}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt
+  cd 4_AsiteTransformation
+  paste <(awk '{print $1"\t"$2}' ${Libs[0]}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt) <(awk '{print $2}' ${Libs[1]}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt) <(awk '{print $2}' ${Libs[2]}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt) <(awk '{print $2}' ${Libs[3]}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt) > ../${Experiment}_Asite_${sizeRange}_CodonCoverage_ignore1st6.txt
+  cd ..
   ```
   
 - Combine all bedGraph files into one summed file (opt)
   - If samples are replicates and you want to increase coverage
   - Be sure to modify paste AND piped awk commands based on number of samples you have in your experiment
   ```bash
+  cd 4_AsiteTransformation
   list="P M"
   set="Mito_mRNA.noDups.Asite"
   for strand in $list
@@ -46,6 +51,7 @@ sizeRange="31to33"
   paste <(awk 'NR>1 {print $1"\t"$2"\t"$3"\t"$4}' ${Libs[0]}_${set}_${sizeRange}_${strand}All.txt) <(awk 'NR>1 {print $4}' ${Libs[1]}_${set}_${sizeRange}_${strand}All.txt) <(awk 'NR>1 {print $4}' ${Libs[2]}_${set}_${sizeRange}_${strand}All.txt) <(awk 'NR>1 {print $4}' ${Libs[3]}_${set}_${sizeRange}_${strand}All.txt) | awk '{print $1"\t"$2"\t"$3"\t"$4 + $5 + $6 + $7}' > ${Experiment}_${set}_${sizeRange}_${strand}All.bedGraph
   sed -i '1i\track type=bedGraph color=0,100,50' ${Experiment}_${set}_${sizeRange}_${strand}All.bedGraph
   done
+  cd ..
   ```
 
 # 3. Outputs

@@ -5,13 +5,13 @@ Separate files are created to report unique mappers and all mappers ('multi'). B
 # 1. Run run_featureCounts.sh
 Replace S1, S2, etc with library (sample) names, update offset and number of samples (e.g. for 4 samples use {0..3}), and run code block.
 ```bash
-Libs=("S1" "S2" "S3" "S4")
+Libs="S1 S2 S3 S4"
 offset=14  # 14 for RPF distribution peak at 31; 15 for peak at 32, 33, 34; 16 for peak at 35,36 
 scriptpath="./5_CountReadsOnFeatures/Scripts/run_featureCounts.sh"
 
-for i in {0..3}
+for lib in $Libs
 do
-sbatch -e logs/5_CountReadsOnFeatures_${Libs[i]}.err -o logs/5_CountReadsOnFeatures_${Libs[i]}.log $scriptpath ${Libs[i]} $offset
+sbatch -e logs/5_CountReadsOnFeatures_$lib.err -o logs/5_CountReadsOnFeatures_$lib.log $scriptpath $lib $offset
 done
 ```
 
@@ -29,11 +29,12 @@ sizeRange='allSizes'
 
 list='CDSignore1stlast_multi CDSignore1stlast_unique'
 
+cd 5_CountReadsOnFeatures
 for type in $list
 do
-paste <(awk '{print $1"\t"$2}' ${Libs[0]}_mito_featureCounts_${sizeRange}Asite_${type}_noDups.txt) <(awk '{print $2}' ${Libs[1]}_mito_featureCounts_${sizeRange}Asite_${type}_noDups.txt) <(awk '{print $2}' ${Libs[2]}_mito_featureCounts_${sizeRange}Asite_${type}_noDups.txt) <(awk '{print $2}' ${Libs[3]}_mito_featureCounts_${sizeRange}Asite_${type}_noDups.txt) <(awk '{print $2}' ${Libs[0]}_mito_featureCounts_CDSignore1stlast_Length.txt) > ${Experiment}_featureCounts_${sizeRange}Asite_${type}_noDups.txt
+paste <(awk '{print $1"\t"$2}' ${Libs[0]}_mito_featureCounts_${sizeRange}Asite_${type}_noDups.txt) <(awk '{print $2}' ${Libs[1]}_mito_featureCounts_${sizeRange}Asite_${type}_noDups.txt) <(awk '{print $2}' ${Libs[2]}_mito_featureCounts_${sizeRange}Asite_${type}_noDups.txt) <(awk '{print $2}' ${Libs[3]}_mito_featureCounts_${sizeRange}Asite_${type}_noDups.txt) <(awk '{print $2}' ${Libs[0]}_mito_featureCounts_CDSignore1stlast_Length.txt) > ../${Experiment}_featureCounts_${sizeRange}Asite_${type}_noDups.txt
 done
-
+cd ..
 ```
   
 # 3. Outputs
@@ -41,9 +42,12 @@ done
   - Multi read counts (meaning all reads including multi-mappers: ${Experiment}\_featureCounts\_allSizesAsite\_CDSignore1stlast\_multi\_noDups.txt
 
 # 4. Add gene names and calculate RPK
-Run R script AddGeneName_RPK.R
+Requires the following R packages: data.table, rlist
+Run: 
 ```bash
+module load R/4.0.1
 Experiment="MitoRP1"
-Rscript ./5_CountReadsOnFeatures/Scripts/AddGeneName_RPK.R $Experiment
+type="unique" # multi unique
+Rscript ./5_CountReadsOnFeatures/Scripts/AddGeneName_RPK.R $Experiment $type
 ```
 This produces 2 new files: \*\_mito_readCount.txt and \*\_mito_RPK.txt
