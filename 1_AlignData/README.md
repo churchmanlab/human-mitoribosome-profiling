@@ -100,7 +100,7 @@ Libs=("S1" "S2" "S3" "S4")
 # 4. Read length distribution plots
 Open script ./1\_AlignData/Scripts/ReadLengthPlot.R with text editor  
 Modify experiment name, colors, etc as needed  
-Requires the following R packages: data.table, pheatmap, RColorBrewer, stringr
+Requires the following R packages: data.table, pheatmap, RColorBrewer, stringr  
 Run: 
 ```bash
 module load R/4.0.1
