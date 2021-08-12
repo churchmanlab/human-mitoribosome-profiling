@@ -76,3 +76,7 @@ Follow steps in ./5\_CountReadsOnFeatures/README.md
 
 ## 6_CodonOccupancy
 Get codon occupancy and make bar plots of mean occupancy, box plots of individual codon occupancy, and scatter plots of codon occupancy vs tRNA abundance. Follow steps in ./6_CodonOccupancy/README.md                                                                                                        
+
+## 7_OXPHOSstoichiometry
+Make relative synthesis and RNA abundance plots, cumulative fraction of subunits stoichiometry plots, get complex averages, plot cyto vs mito correlations.  
+Follow steps in ./7_OXPHOSstoichiometry/README.md                                                                                                        
