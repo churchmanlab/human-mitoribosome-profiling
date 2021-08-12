@@ -1,11 +1,13 @@
 # Human mitoribosome profiling analysis
 
-This repository includes the scripts and annotation files needed to analyze mitoribosome profiling data generated from human cells with or without mouse spike-in. The directories are listed in order to take raw fastq files through trimming, alignment, quality control, and many other library characteristics. There are README files for each analysis step explaining how scripts are run and what is generated with each. Optimized to run on HMS O2 computing cluster (SLURM job scheduler).
+This repository includes the scripts and annotation files needed to analyze mitoribosome profiling data generated from human cells with or without mouse spike-in. The directories are listed in order to take raw fastq files through trimming, alignment, quality control, and many other library characteristics. There are README files for each analysis step explaining how scripts are run and what is generated with each. Optimized to run on HMS O2 computing cluster (SLURM job scheduler).  
+
+Scripts are also provided to align and count reads on features for matching cytoribosome profiling data and RNAseq data (see _CytoRP and _RNAseq directories), and to plot OXPHOS complex averages for both synthesis and RNA levels of Cyto vs. Mito OXPHOS complexes.
 
 # Analysis steps
 
 0. Create STAR index
-1. Trim and align raw reads, remove PCR duplicates  >  get library compositions, RPF length distributions, 5' bedgraphs for viewing on IGV
+1. Trim and align raw reads, remove PCR duplicates  >  get library compositions, RPF length distributions, bedgraphs for viewing on IGV
 2. Make bed files for Vplots  >  5' and 3' plus(P) and minus(M) files for input to Lengths_vs_Pos_Vplot.R to visualize read lengths along genes
 3. Calculate periodicity on 5' and 3' ends PER RPF LENGTH  >  Needed for accurately determining A-site transformation, in combination with RPF length distibutions (step 1) and Vplots: RPFlength vs. genomic position (step 2)
 4. A-site transformation  >  get periodicity and coverage, A-site bedgraphs for viewing on IGV
@@ -29,7 +31,7 @@ Intermediate as well as many other useful files will output to subdirectories.
 Final results and plots will output to working directory.  
 logs/ contains all logs, including error logs
 
-Required R packages: data.table, pheatmap, inlmisc, RColorBrewer, stringr, scales, Rsubread, rlist, Rfast  
+Required R packages: data.table, pheatmap, inlmisc, RColorBrewer, stringr, scales, Rsubread, rlist, Rfast, plotrix  
 To install packages:
 ```bash
 # Enter interactive node on O2
@@ -48,6 +50,8 @@ exit
 
 ## 0_CreateSTARindex
 Download fasta and gtf files from desired source (e.g. GENCODE) and follow instuctions.txt  
+Note for aligning CytoRP and RNAseq data a new index should be made, leaving out the mouse genome if there are not mouse spike-ins in those libraries  
+ 
 
 ## 1_AlignData  
 Initial alignment and quality control  

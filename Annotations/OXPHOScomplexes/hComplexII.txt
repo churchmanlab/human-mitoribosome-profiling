@@ -1,0 +1,5 @@
+HGNC ID	Approved Symbol	Approved Name	Status	Previous Symbols	Synonyms	Chromosome	Accession Numbers	RefSeq IDs	Gene Family Tag	Gene family description	Gene family ID
+10680	SDHA	succinate dehydrogenase complex flavoprotein subunit A	Approved	SDH2	FP, SDHF	5p15.33	BC001380	NM_004168	SDH	Mitochondrial complex II: succinate dehydrogenase subunits	641
+10681	SDHB	succinate dehydrogenase complex iron sulfur subunit B	Approved	SDH1, SDH		1p36.13	U17248	NM_003000	SDH	Mitochondrial complex II: succinate dehydrogenase subunits	641
+10682	SDHC	succinate dehydrogenase complex subunit C	Approved	PGL3	CYB560, cybL	1q23.3	D49737	NM_003001	SDH	Mitochondrial complex II: succinate dehydrogenase subunits	641
+10683	SDHD	succinate dehydrogenase complex subunit D	Approved	PGL, PGL1	cybS	11q23.1	AB006202	NM_003002	SDH	Mitochondrial complex II: succinate dehydrogenase subunits	641

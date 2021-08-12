@@ -22,7 +22,7 @@ done
 **Do not do this until all jobs are complete**
 
 ```bash
-Experiment="MitoRP1"
+Experiment="MitoRP1" # Replace "1" with descriptive name if desired
 Libs=("S1" "S2" "S3" "S4")
 ```
 - Read length distributions from FASTQC  

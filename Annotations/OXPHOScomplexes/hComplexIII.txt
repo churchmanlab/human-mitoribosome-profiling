@@ -1,0 +1,11 @@
+HGNC ID	Approved Symbol	Approved Name	Status	Previous Symbols	Synonyms	Chromosome	Accession Numbers	RefSeq IDs	Gene Family Tag	Gene family description	Gene family ID
+2579	CYC1	cytochrome c1	Approved		UQCR4	8q24.3	BC001006	NM_001916	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+7427	MT-CYB	mitochondrially encoded cytochrome b	Approved	MTCYB	COB, CYTB, UQCR3	mitochondria		YP_003024038	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+30863	UQCR10	ubiquinol-cytochrome c reductase, complex III subunit X	Approved		HSPC051, UCRC, QCR9, UCCR7.2	22q12.2	AB028598	NM_013387	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+30862	UQCR11	ubiquinol-cytochrome c reductase, complex III subunit XI	Approved	UQCR	QCR10	19p13.3	D55636	NM_006830	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+12582	UQCRB	ubiquinol-cytochrome c reductase binding protein	Approved	UQBP	QP-C, QCR7, UQCR6	8q22.1	X13585	NM_006294	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+12585	UQCRC1	ubiquinol-cytochrome c reductase core protein 1	Approved		D3S3191, QCR1, UQCR1	3p21.31	BC009586	NM_003365	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+12586	UQCRC2	ubiquinol-cytochrome c reductase core protein 2	Approved		QCR2, UQCR2	16p12.2	J04973	NM_003366	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+12587	UQCRFS1	ubiquinol-cytochrome c reductase, Rieske iron-sulfur polypeptide 1	Approved		RIS1, RIP1, UQCR5, RISP	19q12	BC010035	NM_006003	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+12590	UQCRH	ubiquinol-cytochrome c reductase hinge protein	Approved		QCR6, UQCR8	1p33	BC001934	NM_006004	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642
+29594	UQCRQ	ubiquinol-cytochrome c reductase complex III subunit VII	Approved		QP-C, QCR8, UQCR7	5q31.1	BC001390	NM_014402	UQCR	Mitochondrial complex III: ubiquinol-cytochrome c reductase complex subunits	642

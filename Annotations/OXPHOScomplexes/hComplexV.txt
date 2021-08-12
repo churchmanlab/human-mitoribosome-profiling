@@ -1,0 +1,21 @@
+HGNC ID	Approved Symbol	Approved Name	Status	Previous Symbols	Synonyms	Chromosome	Accession Numbers	RefSeq IDs	Gene Family Tag	Gene family description	Gene family ID
+823	ATP5F1A	ATP synthase F1 subunit alpha	Approved	ATP5AL2, ATPM, ATP5A1	ATP5A, hATP1, OMR, ORM	18q21.1	D14710	NM_004046	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+830	ATP5F1B	ATP synthase F1 subunit beta	Approved	ATPSB, ATP5B		12q13.3	M27132	NM_001686	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+833	ATP5F1C	ATP synthase F1 subunit gamma	Approved	ATP5CL1, ATP5C, ATP5C1		10p14	D16561	NM_005174	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+837	ATP5F1D	ATP synthase F1 subunit delta	Approved	ATP5D		19p13.3	X63423	NM_001687	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+838	ATP5F1E	ATP synthase F1 subunit epsilon	Approved	ATP5E		20q13.32	AF077045	NM_001001977	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+871	ATP5IF1	ATP synthase inhibitory factor subunit 1	Approved	ATPIF1	ATPI, IP, ATPIP, MGC1167, MGC8898	1p35.3	AL050386	NM_016311	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+841	ATP5MC1	ATP synthase membrane subunit c locus 1	Approved	ATP5G, ATP5G1		17q21.32	D13118	NM_005175	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+842	ATP5MC2	ATP synthase membrane subunit c locus 2	Approved	ATP5G2		12q13.13	X69908	NM_005176	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+843	ATP5MC3	ATP synthase membrane subunit c locus 3	Approved	ATP5G3		2q31.1	BC106881	NM_001689	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+30889	ATP5MD	ATP synthase membrane subunit DAPIT	Approved	USMG5	MGC14697, bA792D24.4, DAPIT	10q24.33	BC007087	NM_032747	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+846	ATP5ME	ATP synthase membrane subunit e	Approved	ATP5I		4p16.3	AB028624	NM_007100	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+848	ATP5MF	ATP synthase membrane subunit f	Approved	ATP5J2	ATP5JL	7q22.1	AF047436	NM_004889	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+14247	ATP5MG	ATP synthase membrane subunit g	Approved	ATP5L	ATP5JG	11q23.3	AF092124	NM_006476	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+1188	ATP5MPL	ATP synthase membrane subunit 6.8PL	Approved	C14orf2	MP68, MLQ, 6.8PL	14q32.33	AF054175	NM_001127393	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+840	ATP5PB	ATP synthase peripheral stalk-membrane subunit b	Approved	ATP5F1		1p13.2	X60221	NM_001688	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+845	ATP5PD	ATP synthase peripheral stalk subunit d	Approved	ATP5H	ATPQ, ATP5JD	17q25.1	AF087135	NM_006356	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+847	ATP5PF	ATP synthase peripheral stalk subunit F6	Approved	ATP5A, ATP5, ATPM, ATP5J	CF6	21q21.3	M37104	NM_001685	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+850	ATP5PO	ATP synthase peripheral stalk subunit OSCP	Approved	ATP5O	OSCP, ATPO	21q22.11	AF088071	NM_001697	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+7414	MT-ATP6	mitochondrially encoded ATP synthase membrane subunit 6	Approved	MTATP6, RP	ATP6, ATPase-6, Su6m	mitochondria		YP_003024031	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644
+7415	MT-ATP8	mitochondrially encoded ATP synthase membrane subunit 8	Approved	MTATP8	ATP8, A6L	mitochondria		YP_003024030	ATP5, MT-ATP	Mitochondrial complex V: ATP synthase subunits	644

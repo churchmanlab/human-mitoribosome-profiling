@@ -1,0 +1,20 @@
+HGNC ID	Approved Symbol	Approved Name	Status	Previous Symbols	Synonyms	Chromosome	Accession Numbers	RefSeq IDs	Gene Family Tag	Gene family description	Gene family ID
+2265	COX4I1	cytochrome c oxidase subunit 4I1	Approved	COX4	COX4-1	16q24.1	AF005889	NM_001861	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+16232	COX4I2	cytochrome c oxidase subunit 4I2	Approved	COX4L2	COXIV-2, COX4B, dJ857M17.2, COX4-2	20q11.21	AF257180	NM_032609	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2267	COX5A	cytochrome c oxidase subunit 5A	Approved			15q24.2	M22760	NM_004255	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2269	COX5B	cytochrome c oxidase subunit 5B	Approved			2q11.2	BC006229	NM_001862	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2277	COX6A1	cytochrome c oxidase subunit 6A1	Approved	COX6A		12q24.31	X15341	NM_004373	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2279	COX6A2	cytochrome c oxidase subunit 6A2	Approved			16p11.2	U66875, M83308	NM_005205	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2280	COX6B1	cytochrome c oxidase subunit 6B1	Approved	COX6B	COXG	19q13.12	BC001015	NM_001863	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+24380	COX6B2	cytochrome c oxidase subunit 6B2	Approved		COXVIB2, FLJ32865, CT59	19q13.42	AK057427	NM_144613	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2285	COX6C	cytochrome c oxidase subunit 6C	Approved			8q22.2	X13238	NM_004374	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2287	COX7A1	cytochrome c oxidase subunit 7A1	Approved	COX7A	COX7AH	19q13.12	BC002757	NM_001864	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2288	COX7A2	cytochrome c oxidase subunit 7A2	Approved		COXVIIa-L, COX7AL	6q14.1	X15822	NM_001865	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2291	COX7B	cytochrome c oxidase subunit 7B	Approved			Xq21.1	Z14244	NM_001866	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+24381	COX7B2	cytochrome c oxidase subunit 7B2	Approved			4p12	AF125109	NM_130902	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2292	COX7C	cytochrome c oxidase subunit 7C	Approved			5q14.3	BC001005	NM_001867	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+2294	COX8A	cytochrome c oxidase subunit 8A	Approved	COX8	COX8-2, COX8L, VIII-L, COX, VIII	11q13.1	J04823	NM_004074	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+24382	COX8C	cytochrome c oxidase subunit 8C	Approved		COX8-3	14q32.12	AY161004	NM_182971	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+7419	MT-CO1	mitochondrially encoded cytochrome c oxidase I	Approved	MTCO1	COX1, COI	mitochondria		YP_003024028	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+7421	MT-CO2	mitochondrially encoded cytochrome c oxidase II	Approved	MTCO2	COX2, CO2	mitochondria		YP_003024029	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643
+7422	MT-CO3	mitochondrially encoded cytochrome c oxidase III	Approved	MTCO3	COX3, COIII, CO3	mitochondria		YP_003024032	COX, MT-CO	Mitochondrial complex IV: cytochrome c oxidase subunits	643

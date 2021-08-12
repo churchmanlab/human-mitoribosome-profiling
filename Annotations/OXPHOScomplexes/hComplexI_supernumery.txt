@@ -1,0 +1,31 @@
+HGNC ID	Approved Symbol	Approved Name	Status	Previous Symbols	Synonyms	Chromosome	Accession Numbers	RefSeq IDs	Gene Family Tag	Gene family description	Gene family ID
+7683	NDUFA1	NADH:ubiquinone oxidoreductase subunit A1	Approved		MWFE, CI-MWFE	Xq24		NM_004541	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7684	NDUFA10	NADH:ubiquinone oxidoreductase subunit A10	Approved		CI-42k	2q37.3	AF087661	NM_004544	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+20371	NDUFA11	NADH:ubiquinone oxidoreductase subunit A11	Approved		B14.7	19p13.3	AJ539081	NM_175614	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+23987	NDUFA12	NADH:ubiquinone oxidoreductase subunit A12	Approved		DAP13, B17.2	12q22	BC005936	NM_018838	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+17194	NDUFA13	NADH:ubiquinone oxidoreductase subunit A13	Approved		CGI-39, CDA016, GRIM-19, GRIM19, B16.6	19p13.11	AF261134	NM_015965	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7685	NDUFA2	NADH:ubiquinone oxidoreductase subunit A2	Approved		B8	5q31.3	AF047185	NM_002488	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7686	NDUFA3	NADH:ubiquinone oxidoreductase subunit A3	Approved		B9	19q13.42	AF044955	NM_004542	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7688	NDUFA5	NADH:ubiquinone oxidoreductase subunit A5	Approved		B13, NUFM, CI-13KD-B, UQOR13, CI-13kB	7q31.32		NM_005000	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7690	NDUFA6	NADH:ubiquinone oxidoreductase subunit A6	Approved		B14, LYRM6, CI-B14, NADHB14	22q13.2	AF047182	NM_002490	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7691	NDUFA7	NADH:ubiquinone oxidoreductase subunit A7	Approved		B14.5a	19p13.2	AF050637	NM_005001	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7692	NDUFA8	NADH:ubiquinone oxidoreductase subunit A8	Approved		PGIV, MGC793	9q33.2	AF044953	NM_014222	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7693	NDUFA9	NADH:ubiquinone oxidoreductase subunit A9	Approved	NDUFS2L	SDR22E1, CI-39k	12p13.3	AF050641	NM_005002	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7694	NDUFAB1	NADH:ubiquinone oxidoreductase subunit AB1	Approved		SDAP, FASN2A, ACP, ACP1	16p12.2	AF087660	NM_005003	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7695	NDUFB1	NADH:ubiquinone oxidoreductase subunit B1	Approved		MNLL, CI-MNLL	14q31.3	BC104672	NM_004545	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7696	NDUFB10	NADH:ubiquinone oxidoreductase subunit B10	Approved		PDSW	16p13.3	AF044954	NM_004548	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+20372	NDUFB11	NADH:ubiquinone oxidoreductase subunit B11	Approved		ESSS, NP17.3, Np15	Xp11.3	AF044213	NM_019056	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7697	NDUFB2	NADH:ubiquinone oxidoreductase subunit B2	Approved		AGGG, CI-AGGG	7q34	AF050639	NM_004546	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7698	NDUFB3	NADH:ubiquinone oxidoreductase subunit B3	Approved		B12	2q33.1	AF047183	NM_002491	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7699	NDUFB4	NADH:ubiquinone oxidoreductase subunit B4	Approved		B15	3q13.33	AF044957	NM_004547	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7700	NDUFB5	NADH:ubiquinone oxidoreductase subunit B5	Approved		SGDH, CI-SGDH, MGC12314	3q26.33	AF047181	NM_002492	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7701	NDUFB6	NADH:ubiquinone oxidoreductase subunit B6	Approved		B17, CI	9p21.1	AF035840	NM_002493	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7702	NDUFB7	NADH:ubiquinone oxidoreductase subunit B7	Approved		B18, CI-B18, MGC2480	19p13.12		NM_004146	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7703	NDUFB8	NADH:ubiquinone oxidoreductase subunit B8	Approved		ASHI, CI-ASHI	10q24.31	AF044958	NM_005004	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7704	NDUFB9	NADH:ubiquinone oxidoreductase subunit B9	Approved		B22, UQOR22, LYRM3	8q24.13	AF044956	NM_005005	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7705	NDUFC1	NADH:ubiquinone oxidoreductase subunit C1	Approved		KFYI	4q31.1	AF047184	NM_002494	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7706	NDUFC2	NADH:ubiquinone oxidoreductase subunit C2	Approved		B14.5b, HLC-1	11q14.1	AF087659	NM_004549	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7719	NDUFV3	NADH:ubiquinone oxidoreductase subunit V3	Approved		CI-10k	21q22.3			NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7711	NDUFS4	NADH:ubiquinone oxidoreductase subunit S4	Approved		AQDQ, CI-18	5q11.2	AF020351	NM_002495	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7712	NDUFS5	NADH:ubiquinone oxidoreductase subunit S5	Approved		CI-15k	1p34.3	AF047434	NM_004552	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150
+7713	NDUFS6	NADH:ubiquinone oxidoreductase subunit S6	Approved		CI-13kA	5p15.33	BC038664	NM_004553	NDUF	NADH:ubiquinone oxidoreductase supernumerary subunits	1150

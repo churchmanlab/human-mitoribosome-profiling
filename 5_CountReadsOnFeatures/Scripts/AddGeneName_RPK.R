@@ -8,7 +8,7 @@ type <- args[2] # multi unique
 library(data.table)
 library(rlist)
 
-# The following parameters should not be changed for running on mito-specific reads. These would be used for running the same script on cytoribosome profiling or RNAseq experiments that use featureCounts to count all genes across genome.
+# The following parameters should not be changed for running on mito-specific reads. 
 pseudo = 'exclude' # include exclude
 ncRNA = 'exclude'
 geneSet = 'mito'

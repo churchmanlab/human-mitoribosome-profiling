@@ -276,8 +276,9 @@ do
 samtools view -@ 3 -h -O SAM -o ${LibName}_${type}.sam ${LibName}_${type}.bam
 
 # remove soft clipped bases from reads
-java -jar /n/groups/churchman/bms36/programs/jvarkit/dist/biostar84452.jar -o ${LibName}_${type}.noSoft.sam ${LibName}_${type}.sam
+java -jar ./Scripts/biostar84452.jar -o ${LibName}_${type}.noSoft.sam ${LibName}_${type}.sam
 rm ${LibName}_${type}.sam
+# /n/groups/churchman/bms36/programs/jvarkit/dist/biostar84452.jar
 
 # convert back to .bam
 samtools view -@ 3 -b -h -o ${LibName}_${type}.noSoft.bam ${LibName}_${type}.noSoft.sam

@@ -16,12 +16,12 @@
 
 
 ### REQUIREMENTS:	./logs/ directory 
-###					*_Aligned.Mito_mRNA.noDups.bam file
+###					*_Aligned.Mito_mRNA.noDups.bam file in ./1_AlignData
 ###					
 ###					Rsubread package installed in R environment
 ###					
 ###					./5_CountReadsOnFeatures/Scripts/
-###					featureCounts_hMitoRP_allSizesAsiteOverap_CDS.R
+###					featureCounts_hMitoRP_allSizesAsiteOverlap_CDS.R
 ###					
 ###					./Annotations/GRCh38_mitoCDSnoOverlapPlus6minus5.gtf
 

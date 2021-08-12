@@ -1,0 +1,15 @@
+HGNC ID	Approved Symbol	Approved Name	Status	Previous Symbols	Synonyms	Chromosome	Accession Numbers	RefSeq IDs	Gene Family Tag	Gene family description	Gene family ID
+7707	NDUFS1	NADH:ubiquinone oxidoreductase core subunit S1	Approved		CI-75k	2q33.3		NM_005006	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7716	NDUFV1	NADH:ubiquinone oxidoreductase core subunit V1	Approved		CI-51K	11q13.2	AF092131	NM_007103	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7708	NDUFS2	NADH:ubiquinone oxidoreductase core subunit S2	Approved		CI-49	1q23.3	BC008868	NM_004550	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7710	NDUFS3	NADH:ubiquinone oxidoreductase core subunit S3	Approved		CI-30	11p11.2	AF067139	NM_004551	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7717	NDUFV2	NADH:ubiquinone oxidoreductase core subunit V2	Approved		CI-24k	18p11.22	X84421	NM_021074	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7714	NDUFS7	NADH:ubiquinone oxidoreductase core subunit S7	Approved		PSST, FLJ46880, FLJ45860, CI-20	19p13.3	AF115969	NM_024407	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7715	NDUFS8	NADH:ubiquinone oxidoreductase core subunit S8	Approved		TYKY, CI-23k	11q13.2	U65579	NM_002496	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7455	MT-ND1	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 1	Approved	MTND1	ND1, NAD1	mitochondria		YP_003024026	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7456	MT-ND2	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 2	Approved	MTND2	ND2, NAD2	mitochondria		YP_003024027	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7458	MT-ND3	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 3	Approved	MTND3	ND3, NAD3	mitochondria		YP_003024033	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7459	MT-ND4	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 4	Approved	MTND4, LHON	ND4, NAD4	mitochondria		YP_003024035	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7460	MT-ND4L	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 4L	Approved	MTND4L	ND4L, NAD4L	mitochondria		YP_003024034	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7461	MT-ND5	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 5	Approved	MTND5	ND5, NAD5	mitochondria		YP_003024036	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149
+7462	MT-ND6	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 6	Approved	MTND6	NAD6, ND6	mitochondria		YP_003024037	NDUF, MT-ND	NADH:ubiquinone oxidoreductase core subunits	1149

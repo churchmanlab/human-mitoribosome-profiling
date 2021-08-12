@@ -1,16 +1,49 @@
 ###################### PREPARE MAPPING REFERENCE AND MAKE STAR INDEX #####################
 
 1.  Concatenate fasta files and gtf files for all the sequences you want to map to: hg38 human genome, LSU rRNA (28S, 5.8S, 5S, etc), SSU rRNA, Nuclear tRNAs (these categories are not annotated in available gtfs), mm10 mouse genome {the chromosome names need to be modified here to be different from human (mchr1, mchr2, etc) - use sed and be sure to do for mouse fasta and mouse gtf}
+
+    # For MitoRP and RNAseq:
     cat GRCh38.primary_assembly.genome.fa rRNA_LSU.fasta rRNA_SSU.fasta tRNAs_cat.fa mGenome_ALL_mM17_gencode.fa > GRCh38_ncRNAs_mM17_merge.fasta
     cat gencode.v30.primary_assembly.annotation.gtf ncRNA.gtf mGenome_ALL_mM17_gencode.gtf > GRCh38_ncRNAs_mM17_merge.gtf
 
+    # For CytoRP:
+    cat GRCh38.primary_assembly.genome.fa rRNA_LSU.fasta rRNA_SSU.fasta tRNAs_cat.fa > GRCh38_ncRNAs.fasta
+    cat gencode.v30.primary_assembly.annotation.gtf ncRNA.gtf > GRCh38_ncRNAs.gtf
+
+
+
+
 2.  Fix fasta so that all lines are the same length (don't have to do this for mapping, but some downstream programs may need it to be formatted correctly)
     module load picard/2.8.0
+
+    # For MitoRP and RNAseq:
     sbatch -p short -t 0-01:00 --mem=5G --wrap="java -jar $PICARD/picard-2.8.0.jar NormalizeFasta I=GRCh38_ncRNAs_mM17_merge.fasta O=GRCh38_ncRNAs_mM17_merge.formatted.fasta LINE_LENGTH=60"
+    
+    # For CytoRP:
+    sbatch -p short -t 0-01:00 --mem=5G --wrap="java -jar $PICARD/picard-2.8.0.jar NormalizeFasta I=GRCh38_ncRNAs.fasta O=GRCh38_ncRNAs.formatted.fasta LINE_LENGTH=60"
 
-3.  Make STAR index
+
+
+
+
+3.  Make STAR indexes
+    
+    # For MitoRP
     mkdir GRCh38_ncRNAs_mM17_merge_riboSeq
-    sbatch -p short -t 0-3:00 -c 6 --mem=100G --wrap="STAR --runThreadN 6 --runMode genomeGenerate --genomeDir GRCh38_ncRNAs_mM17_merge_riboSeq --genomeFastaFiles GRCh38_ncRNAs_mM17_merge.formatted.fasta --sjdbGTFfile mGenome_ALL_mM17_gencode.gtf --sjdbOverhang 50"
+    sbatch -p short -t 0-3:00 -c 6 --mem=100G --wrap="STAR --runThreadN 6 --runMode genomeGenerate --genomeDir GRCh38_ncRNAs_mM17_merge_riboSeq --genomeFastaFiles GRCh38_ncRNAs_mM17_merge.formatted.fasta --sjdbGTFfile GRCh38_ncRNAs_mM17_merge.gtf --sjdbOverhang 50"
 
-4. Place in correct directory: ./Annotations/STARindex/GRCh38_ncRNAs_mM17_merge_riboSeq
-   Alternatively, place in any desired location and modify STARindexPATH variable in the script 1_AlignData/Scripts/ProcessFASTQ_hMitoRP.sh
+    # For RNAseq
+    mkdir GRCh38_ncRNAs_mM17_merge_RNAseq
+    sbatch -p short -t 0-3:00 -c 6 --mem=100G --wrap="STAR --runThreadN 6 --runMode genomeGenerate --genomeDir GRCh38_ncRNAs_mM17_merge_riboSeq --genomeFastaFiles GRCh38_ncRNAs_mM17_merge.formatted.fasta --sjdbGTFfile GRCh38_ncRNAs_mM17_merge.gtf --sjdbOverhang 60"
+
+    # For CytoRP
+    mkdir GRCh38_ncRNAs_riboSeq
+    sbatch -p short -t 0-3:00 -c 6 --mem=80G --wrap="STAR --runThreadN 6 --runMode genomeGenerate --genomeDir GRCh38_ncRNAs_riboSeq --genomeFastaFiles GRCh38_ncRNAs.formatted.fasta --sjdbGTFfile GRCh38_ncRNAs.gtf --sjdbOverhang 50"
+
+
+
+4. Place in correct directory: ./Annotations/STARindex/GRCh38_ncRNAs_mM17_merge_riboSeq 
+			       ./Annotations/STARindex/GRCh38_ncRNAs_mM17_merge_RNAseq
+			       ./Annotations/STARindex/GRCh38_ncRNAs_riboSeq
+
+   Alternatively, place in any desired location and modify STARindexPATH variable in the script 1_AlignData/Scripts/ProcessFASTQ_hMitoRP.sh/ProcessFASTQ_hCytoRP/ProcessFASTQ_hRNAseq
