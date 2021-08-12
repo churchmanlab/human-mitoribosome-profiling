@@ -6,13 +6,14 @@ Scripts are also provided to align and count reads on features for matching cyto
 
 # Analysis steps
 
-0. Create STAR index
-1. Trim and align raw reads, remove PCR duplicates  >  get library compositions, RPF length distributions, bedgraphs for viewing on IGV
+0. Create STAR indexes
+1. Trim and align raw reads, remove PCR duplicates (repeat for CytoRP and RNAseq data if available)  >  get library compositions, RPF length distributions, bedgraphs for viewing on IGV
 2. Make bed files for Vplots  >  5' and 3' plus(P) and minus(M) files for input to Lengths_vs_Pos_Vplot.R to visualize read lengths along genes
 3. Calculate periodicity on 5' and 3' ends PER RPF LENGTH  >  Needed for accurately determining A-site transformation, in combination with RPF length distibutions (step 1) and Vplots: RPFlength vs. genomic position (step 2)
 4. A-site transformation  >  get periodicity and coverage, A-site bedgraphs for viewing on IGV
-5. Count reads on features using featureCounts  >  get unique- and multi- (all-) aligned readcounts across genes. Use in AddGeneName_RPK.R to get RPK values
+5. Count reads on features using featureCounts (repeat for CytoRP and RNAseq data if available) >  get unique- and multi- (all-) aligned readcounts across genes. Use in AddGeneName_RPK.R to get RPK values
 6. Get codon occupancy
+7. Make stoichiometry plots (for experiments with MitoRP, CytoRP, and RNAseq data)
 
 # Data availability and manuscript
 
