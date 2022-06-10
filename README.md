@@ -52,7 +52,8 @@ exit
 ## 0_CreateSTARindex
 Download fasta and gtf files from desired source (e.g. GENCODE) and follow instuctions.txt  
 Note for aligning CytoRP and RNAseq data a new index should be made, leaving out the mouse genome if there are not mouse spike-ins in those libraries  
- 
+
+Annotations/BEDfiles/GENCODE_hg38_proteincoding.sorted.bed will also have to be downloaded. See instructions in Annotations/BEDfiles/GENCODE_hg38_proteincoding.README
 
 ## 1_AlignData  
 Initial alignment and quality control  
