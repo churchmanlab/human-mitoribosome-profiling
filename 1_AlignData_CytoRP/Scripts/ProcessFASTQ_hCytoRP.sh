@@ -72,7 +72,7 @@ cd ./1_AlignData_CytoRP
 if [ "${UMI}" = "3p10_5p4" ]
 then
 	# Cutadapt (minimum is 25-10-4=11 after trimming --untrimmed-output writes reads with     		  no adaptor found INSTEAD of writing to final output file. Do this here so that we keep only reads that have adapter, which means we know where the barcode is
-	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 25 ${InputFASTQ} -o ${LibName}_trimmed.fastq
+	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 25 ../${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	###### To extract barcode ######
 	python ../1_AlignData/Scripts/extractMolecularBarcodeFrom3pr10AND5pr4.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq
@@ -80,7 +80,7 @@ then
 elif [ "${UMI}" = "3p6_5p4" ]
 then
 	# Cutadapt (minimum is 21-6-4=11 after trimming --untrimmed-output writes reads with no adaptor found INSTEAD of writing to final output file. Do this here so that we keep only reads that have adapter, which means we know where the barcode is
-	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 21 ${InputFASTQ} -o ${LibName}_trimmed.fastq
+	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 21 ../${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	###### To extract barcode ######
 	python ../1_AlignData/Scripts/extractMolecularBarcodeFrom3pr6AND5pr.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq
@@ -89,7 +89,7 @@ then
 elif [ "${UMI}" = "3p6" ]
 then 
 # 	Cutadapt (minimum is 17-6=11 after trimming --untrimmed-output writes reads with no adaptor found INSTEAD of writing to final output file. Do this here so that we keep only reads that have adapter, which means we know where the barcode is
-	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 17 ${InputFASTQ} -o ${LibName}_trimmed.fastq
+	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 17 ../${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	##### To extract barcode ######
 	python ../1_AlignData/Scripts/extractMolecularBarcodeFrom3pr.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq ${LibName}_Barcodes.txt ${LibName}_Ligation.txt
