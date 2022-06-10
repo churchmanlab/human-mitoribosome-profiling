@@ -73,7 +73,7 @@ cd ./1_AlignData_RNAseq
 if [ "${UMI}" = "3p10_5p4" ]
 then
 	# Cutadapt (minimum is 35-10-4-1=20 after trimming --untrimmed-output writes reads with no adaptor found INSTEAD of writing to final output file. Do this here so that we keep only reads that have adapter, which means we know where the barcode is
-	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 35 ${InputFASTQ} -o ${LibName}_trimmed.fastq
+	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 35 ../${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	###### To extract barcode ######
 	python ../1_AlignData/Scripts/extractMolecularBarcodeFrom3pr10AND5pr4.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq
@@ -81,7 +81,7 @@ then
 elif [ "${UMI}" = "3p6_5p4" ]
 then
 	# Cutadapt (minimum is 31-6-4=21 after trimming --untrimmed-output writes reads with no adaptor found INSTEAD of writing to final output file. Do this here so that we keep only reads that have adapter, which means we know where the barcode is
-	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 31 ${InputFASTQ} -o ${LibName}_trimmed.fastq
+	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 31 ../${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	###### To extract barcode ######
 	python ../1_AlignData/Scripts/extractMolecularBarcodeFrom3pr6AND5pr.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq
@@ -90,7 +90,7 @@ then
 elif [ "${UMI}" = "3p6" ]
 then 
 # 	Cutadapt (minimum is 26-6=20 after trimming --untrimmed-output writes reads with no adaptor found INSTEAD of writing to final output file. Do this here so that we keep only reads that have adapter, which means we know where the barcode is
-	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 26 ${InputFASTQ} -o ${LibName}_trimmed.fastq
+	cutadapt -e 0.2 --untrimmed-output ${LibName}_noAdaptor.fastq -a CTGTAGGCACCATCAAT -m 26 ../${InputFASTQ} -o ${LibName}_trimmed.fastq
 	rm ${LibName}_noAdaptor.fastq
 	##### To extract barcode ######
 	python ../1_AlignData/Scripts/extractMolecularBarcodeFrom3pr.py ${LibName}_trimmed.fastq ${LibName}_Cleaned.fastq ${LibName}_Barcodes.txt ${LibName}_Ligation.txt
@@ -103,7 +103,7 @@ then
 	# Need newer cutadapt to handle paired end reads, and need python3 for that
 	module load python/3.7.4
 	module load cutadapt/2.5
-	cutadapt -j 4 -m 30 -o ${LibName}_R1_Cleaned.fastq -p ${LibName}_R2_Cleaned.fastq ${InputFASTQ}_R2_001.fastq.gz ${InputFASTQ}_R1_001.fastq.gz  # Reverse order of R1 and R2 so orientation will be forward
+	cutadapt -j 4 -m 30 -o ${LibName}_R1_Cleaned.fastq -p ${LibName}_R2_Cleaned.fastq ../${InputFASTQ}_R2_001.fastq.gz ../${InputFASTQ}_R1_001.fastq.gz  # Reverse order of R1 and R2 so orientation will be forward
 	/n/groups/churchman/mc348/TimelapseSeq/Scripts/NGmerge-master/NGmerge -1 ${LibName}_R1_Cleaned.fastq -2 ${LibName}_R2_Cleaned.fastq -n 4 -o ${LibName}_Cleaned.fastq -p 0.1 -m 10 -v -g
 	# Reload python2
 	module load python/2.7.12
