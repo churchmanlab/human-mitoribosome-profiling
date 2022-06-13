@@ -1,4 +1,4 @@
-How to download GENCODE_hg38_proteincoding.sorted.bed\
+How to download GENCODE_hg38_proteincoding.sorted.bed
 
 Use UCSC webtool here:
 https://genome.ucsc.edu/cgi-bin/hgTables?command=start
@@ -9,7 +9,7 @@ table: Comprehensive (wgEncodeGencodeCompV40)
 
 region: genome
 
-output format: BED - browser extensible data\
+output format: BED - browser extensible data
 
 "get output"
 
