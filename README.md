@@ -1,4 +1,6 @@
-# Human mitoribosome profiling analysis
+# Human mitoribosome profiling analysis 
+
+DOI 10.5281/zenodo.6814724
 
 This repository includes the scripts and annotation files needed to analyze mitoribosome profiling data generated from human cells with or without mouse spike-in. The directories are listed in order to take raw fastq files through trimming, alignment, quality control, and many other library characteristics. There are README files for each analysis step explaining how scripts are run and what is generated with each. Optimized to run on HMS O2 computing cluster (SLURM job scheduler).  
 
@@ -54,6 +56,8 @@ Download fasta and gtf files from desired source (e.g. GENCODE) and follow instu
 Note for aligning CytoRP and RNAseq data a new index should be made, leaving out the mouse genome if there are not mouse spike-ins in those libraries  
 
 Annotations/BEDfiles/GENCODE_hg38_proteincoding.sorted.bed will also have to be downloaded. See instructions in Annotations/BEDfiles/GENCODE_hg38_proteincoding.README
+
+ 
 
 ## 1_AlignData  
 Initial alignment and quality control  
