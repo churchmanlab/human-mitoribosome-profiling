@@ -19,7 +19,7 @@ Scripts are also provided to align and count reads on features for matching cyto
 
 # Data availability and manuscript
 
-Fastq files are deposited in the GEO database under the accession number GSE173283. The link to our full manuscript will be provided here upon publication.
+Fastq files are deposited in the GEO database under the accession number GSE173283. The link to our publication is https://genomebiology.biomedcentral.com/articles/10.1186/s13059-022-02732-9.
 
 
 <img src="Image.jpg" width="90%">
