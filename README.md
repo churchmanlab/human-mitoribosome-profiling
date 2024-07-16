@@ -6,7 +6,7 @@ This repository includes the scripts and annotation files needed to analyze mito
 
 Scripts are also provided to align and count reads on features for matching cytoribosome profiling data and RNAseq data (see _CytoRP and _RNAseq directories), and to plot OXPHOS complex averages for both synthesis and RNA levels of Cyto vs. Mito OXPHOS complexes.
 
-An additional repository, dealing primarily with codon-level analyses, is provided at human-mitoribosome-profiling_appendixA.
+An additional repository, dealing primarily with codon-level analyses, is provided at human-mitoribosome-profiling_appendixA. The starting point in that pipeline is A-site transformation, as a new "AsiteAndCountFrame.sh" is provided there which outputs codon-level A-site files in addition to nucleotide-level A-site files.
 
 # Analysis steps
 
