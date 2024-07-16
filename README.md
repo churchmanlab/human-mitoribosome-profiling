@@ -6,6 +6,8 @@ This repository includes the scripts and annotation files needed to analyze mito
 
 Scripts are also provided to align and count reads on features for matching cytoribosome profiling data and RNAseq data (see _CytoRP and _RNAseq directories), and to plot OXPHOS complex averages for both synthesis and RNA levels of Cyto vs. Mito OXPHOS complexes.
 
+An additional repository, dealing primarily with codon-level analyses, is provided at human-mitoribosome-profiling_appendixA.
+
 # Analysis steps
 
 0. Create STAR indexes
